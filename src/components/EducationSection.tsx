@@ -69,7 +69,7 @@ const EducationSection = () => {
                     </div>
                   </div>
                   <p className="text-portfolio-light text-base">
-                    {edu.institution}
+                    {edu.University}
                   </p>
                   <p className="mt-2 text-portfolio-light text-sm">
                     {edu.description}
