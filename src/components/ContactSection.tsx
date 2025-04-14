@@ -51,13 +51,13 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="bg-white">
+    <section id="contact" className="bg-muted">
       <div className="container">
         <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-portfolio-navy mb-5">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-5">
             Get In Touch
           </h2>
-          <p className="text-portfolio-light max-w-lg">
+          <p className="text-muted-foreground max-w-lg">
             I'm currently looking for new opportunities. Whether you have a
             question or just want to say hi, I'll try my best to get back to you!
           </p>
@@ -67,7 +67,7 @@ const ContactSection = () => {
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-portfolio-navy mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
                   Name
                 </label>
                 <Input 
@@ -75,14 +75,14 @@ const ContactSection = () => {
                   type="text" 
                   id="name" 
                   placeholder="Your Name" 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
+                  className="w-full p-3 border border-border rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
                 />
                 {errors.name && (
-                  <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>
+                  <p className="text-destructive text-sm mt-1">{errors.name.message}</p>
                 )}
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-portfolio-navy mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
                   Email
                 </label>
                 <Input 
@@ -96,15 +96,15 @@ const ContactSection = () => {
                   type="email" 
                   id="email" 
                   placeholder="your.email@example.com" 
-                  className="w-full p-3 border border-gray-300 rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
+                  className="w-full p-3 border border-border rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
                 />
                 {errors.email && (
-                  <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                  <p className="text-destructive text-sm mt-1">{errors.email.message}</p>
                 )}
               </div>
             </div>
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-portfolio-navy mb-1">
+              <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">
                 Subject
               </label>
               <Input 
@@ -112,24 +112,24 @@ const ContactSection = () => {
                 type="text" 
                 id="subject" 
                 placeholder="How can I help you?" 
-                className="w-full p-3 border border-gray-300 rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
+                className="w-full p-3 border border-border rounded-md focus:ring-portfolio-accent focus:border-portfolio-accent"
               />
               {errors.subject && (
-                <p className="text-red-500 text-sm mt-1">{errors.subject.message}</p>
+                <p className="text-destructive text-sm mt-1">{errors.subject.message}</p>
               )}
             </div>
             <div>
-              <label htmlFor="message" className="block text-sm font-medium text-portfolio-navy mb-1">
+              <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
                 Message
               </label>
               <Textarea 
                 {...register("message", { required: "Message is required" })}
                 id="message" 
                 placeholder="Your message here..." 
-                className="w-full p-3 border border-gray-300 rounded-md h-32 focus:ring-portfolio-accent focus:border-portfolio-accent resize-none"
+                className="w-full p-3 border border-border rounded-md h-32 focus:ring-portfolio-accent focus:border-portfolio-accent resize-none"
               />
               {errors.message && (
-                <p className="text-red-500 text-sm mt-1">{errors.message.message}</p>
+                <p className="text-destructive text-sm mt-1">{errors.message.message}</p>
               )}
             </div>
             <div className="text-center">
@@ -146,7 +146,7 @@ const ContactSection = () => {
         </div>
 
         <div className="mt-20 text-center">
-          <p className="text-portfolio-light">
+          <p className="text-muted-foreground">
             Alternatively, you can reach me at:
           </p>
           <a

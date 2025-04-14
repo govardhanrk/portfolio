@@ -55,7 +55,7 @@ const ProjectsSection = () => {
         : projects.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="bg-gray-50 py-20">
+    <section id="projects" className="bg-muted py-20">
       <div className="container">
         <h2 className="section-heading">Projects I've Built</h2>
         
@@ -68,7 +68,7 @@ const ProjectsSection = () => {
               className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
                 filter === category
                   ? "bg-portfolio-accent text-white"
-                  : "bg-gray-200 text-portfolio-navy hover:bg-gray-300"
+                  : "bg-accent text-muted-foreground hover:bg-accent/80"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -81,11 +81,11 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 border border-border"
             >
               {/* Project image */}
               <div className="relative aspect-video">
-                <div className="absolute inset-0 bg-portfolio-accent bg-opacity-20 hover:bg-opacity-0 transition-all duration-300 z-10"></div>
+                <div className="absolute inset-0 bg-foreground/20 hover:bg-opacity-0 transition-all duration-300 z-10"></div>
                 <img
                   src={project.image}
                   alt={project.title}
@@ -102,7 +102,7 @@ const ProjectsSection = () => {
                         Featured Project
                       </span>
                     )}
-                    <h3 className="text-xl font-bold text-portfolio-navy">
+                    <h3 className="text-xl font-bold text-foreground">
                       {project.title}
                     </h3>
                   </div>
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-portfolio-light hover:text-portfolio-accent transition-colors duration-300"
+                        className="text-muted-foreground hover:text-portfolio-accent transition-colors duration-300"
                       >
                         <Github size={18} />
                         <span className="sr-only">GitHub</span>
@@ -123,7 +123,7 @@ const ProjectsSection = () => {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-portfolio-light hover:text-portfolio-accent transition-colors duration-300"
+                        className="text-muted-foreground hover:text-portfolio-accent transition-colors duration-300"
                       >
                         <ExternalLink size={18} />
                         <span className="sr-only">External Link</span>
@@ -131,10 +131,10 @@ const ProjectsSection = () => {
                     )} */}
                   </div>
                 </div>
-                <p className="text-portfolio-light mb-4 text-sm">
+                <p className="text-muted-foreground mb-4 text-sm">
                   {project.description}
                 </p>
-                <ul className="flex flex-wrap text-xs font-mono text-portfolio-light gap-x-3 gap-y-2">
+                <ul className="flex flex-wrap text-xs font-mono text-muted-foreground gap-x-3 gap-y-2">
                   {project.technologies.map((tech) => (
                     <li key={tech}>{tech}</li>
                   ))}

@@ -27,11 +27,11 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="bg-white">
+    <section id="about" className="bg-background">
       <div className="container">
         <h2 className="section-heading">About Me</h2>
         <div className="grid md:grid-cols-3 gap-10 items-start">
-          <div className="md:col-span-2 space-y-4 text-portfolio-light">
+          <div className="md:col-span-2 space-y-4 text-muted-foreground">
             <p>
               Hello! I'm Govardhan Khadakkar, a Software Engineer and Data Science enthusiast based in Columbia, Missouri.
               I specialize in data engineering, cloud solutions, and building scalable applications, with expertise in Python, Java, SQL,
@@ -65,7 +65,7 @@ const AboutSection = () => {
             </ul>
             <div className="pt-6">
               <a href="/files/Govardhan Khadakkar Resume.pdf" target="_blank" rel="noopener noreferrer">
-                <Button className="btn-primary inline-block hover:btn-primary/80 text-black hover:text-white inline-flex items-center px-6 py-6 rounded transition-transform duration-300 hover:scale-105 bg-transparent">
+                <Button className="btn-primary inline-block hover:btn-primary/80 text-foreground hover:text-background inline-flex items-center px-6 py-6 rounded transition-transform duration-300 hover:scale-105 bg-transparent">
                   <FileText size={18} />
                   Check out my Resume
                 </Button>
@@ -74,7 +74,7 @@ const AboutSection = () => {
           </div>
           <div className="relative mx-auto w-64 h-64 mt-10 md:mt-0">
             <div className="absolute w-full h-full border-2 border-portfolio-accent rounded-md transform translate-x-5 translate-y-5" />
-            <div className="absolute inset-0 bg-portfolio-navy/20 rounded-md z-10 hover:bg-transparent transition-colors duration-300" />
+            <div className="absolute inset-0 bg-foreground/20 rounded-md z-10 hover:bg-transparent transition-colors duration-300" />
             <img
               src="/images/aboutprofile.jpg"
               alt="Govardhan Khadakkar"

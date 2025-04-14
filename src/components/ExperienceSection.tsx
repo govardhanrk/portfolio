@@ -74,13 +74,13 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="bg-gray-50">
+    <section id="experience" className="bg-muted">
       <div className="container">
         <h2 className="section-heading">Where I've Worked</h2>
         <div className="md:grid md:grid-cols-4 gap-8">
           {/* Tabs */}
           <div className="mb-6 md:mb-0">
-            <div className="flex md:flex-col overflow-x-auto scrollbar-none md:border-l-0 md:border-l-2 border-gray-200">
+            <div className="flex md:flex-col overflow-x-auto scrollbar-none md:border-l-0 md:border-l-2 border-border">
               {experiences.map((experience, idx) => (
                 <button
                   key={idx}
@@ -88,7 +88,7 @@ const ExperienceSection = () => {
                   className={`px-5 py-4 text-base font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
                     idx === activeTabIndex
                       ? "text-portfolio-accent border-b-2 md:border-b-0 md:border-l-2 border-portfolio-accent md:-ml-[2px]"
-                      : "text-portfolio-light hover:text-portfolio-navy hover:bg-gray-100"
+                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
                   }`}
                 >
                   <div className="w-8 h-8 mr-3 flex-shrink-0">
@@ -110,32 +110,23 @@ const ExperienceSection = () => {
 
           {/* Content */}
           <div className="md:col-span-3 animate-fade-in">
-            <div className="mb-2">
-              <h3 className="text-xl font-semibold text-portfolio-navy">
-                {experiences[activeTabIndex].title}{" "}
-                <span className="text-portfolio-accent">
-                  @ {experiences[activeTabIndex].company}
-                </span>
-              </h3>
-              <p className="text-portfolio-light font-mono text-sm">
-                {experiences[activeTabIndex].date}
-              </p>
-            </div>
-            <ul className="space-y-4 mt-6">
-              {experiences[activeTabIndex].responsibilities.map(
-                (responsibility, idx) => (
-                  <li
-                    key={idx}
-                    className="flex text-portfolio-light group"
-                  >
-                    <span className="mr-4 mt-1 text-portfolio-accent transform group-hover:translate-x-1 transition-transform duration-200">
-                      ▹
-                    </span>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-2">
+                <Briefcase className="text-portfolio-accent" size={20} />
+                <h3 className="text-xl font-bold text-foreground">
+                  {experiences[activeTabIndex].title}
+                </h3>
+              </div>
+              <p className="text-muted-foreground">{experiences[activeTabIndex].date}</p>
+              <ul className="space-y-2">
+                {experiences[activeTabIndex].responsibilities.map((responsibility, idx) => (
+                  <li key={idx} className="flex items-start space-x-2 text-muted-foreground">
+                    <span className="text-portfolio-accent mt-1">▹</span>
                     <span>{responsibility}</span>
                   </li>
-                )
-              )}
-            </ul>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

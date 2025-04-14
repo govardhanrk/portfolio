@@ -45,44 +45,44 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" className="bg-white">
+    <section id="education" className="bg-background">
       <div className="container">
         <h2 className="section-heading">Education</h2>
         <div className="space-y-8">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+              className="bg-card rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 border border-border"
             >
               <div className="flex items-start gap-4">
-                <div className="bg-gray-50 p-3 rounded-full">
+                <div className="bg-muted p-3 rounded-full">
                   {edu.icon}
                 </div>
                 <div className="flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-                    <h3 className="text-lg font-bold text-portfolio-navy">
+                    <h3 className="text-lg font-bold text-foreground">
                       {edu.degree}
                     </h3>
-                    <div className="flex items-center text-sm text-portfolio-light">
+                    <div className="flex items-center text-sm text-muted-foreground">
                       <Calendar className="w-4 h-4 mr-1" />
                       {edu.date}
                     </div>
                   </div>
-                  <p className="text-portfolio-light text-base">
+                  <p className="text-muted-foreground text-base">
                     {edu.University}
                   </p>
-                  <p className="mt-2 text-portfolio-light text-sm">
+                  <p className="mt-2 text-muted-foreground text-sm">
                     {edu.description}
                   </p>
                   <div className="mt-3">
-                    <h4 className="text-sm font-semibold text-portfolio-navy mb-1">
+                    <h4 className="text-sm font-semibold text-foreground mb-1">
                       Achievements and Activities:
                     </h4>
                     <ul className="space-y-1">
                       {edu.achievements.map((achievement, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start text-sm text-portfolio-light"
+                          className="flex items-start text-sm text-muted-foreground"
                         >
                           <span className="text-portfolio-accent mr-2 mt-1">
                             ▹

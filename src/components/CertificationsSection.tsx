@@ -32,28 +32,28 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="bg-portfolio-lightest py-24">
+    <section id="certifications" className="bg-background py-24">
       <div className="container">
         <h2 className="section-heading">Certifications</h2>
-        <p className="text-portfolio-light max-w-2xl mb-10">
+        <p className="text-muted-foreground max-w-2xl mb-10">
           Professional certifications that validate my expertise in various cloud platforms and technologies.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           {certifications.map((cert, index) => (
             <Card 
               key={index}
-              className="border border-transparent hover:border-portfolio-accent transition-all duration-300 bg-white shadow-sm hover:shadow-lg transform hover:-translate-y-1"
+              className="border border-border hover:border-portfolio-accent transition-all duration-300 bg-card shadow-sm hover:shadow-lg transform hover:-translate-y-1"
             >
               <CardContent className="p-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-portfolio-lightest p-3 rounded-full">
+                  <div className="bg-muted p-3 rounded-full">
                     {cert.icon}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-portfolio-navy">{cert.name}</h3>
-                    <p className="text-portfolio-light">{cert.issuer}</p>
+                    <h3 className="text-xl font-bold text-foreground">{cert.name}</h3>
+                    <p className="text-muted-foreground">{cert.issuer}</p>
                     
-                    <div className="flex items-center mt-2 text-sm text-portfolio-light">
+                    <div className="flex items-center mt-2 text-sm text-muted-foreground">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span>{cert.date}</span>
                     </div>
@@ -61,11 +61,11 @@ const CertificationsSection = () => {
                     <Separator className="my-3" />
                     
                     <div className="mt-2">
-                      <div className="flex items-center text-sm text-portfolio-light">
+                      <div className="flex items-center text-sm text-muted-foreground">
                         <CheckCircle className="w-4 h-4 mr-2 text-portfolio-accent" />
                         <span>Credential ID: {cert.credentialId}</span>
                       </div>
-                      <p className="mt-2 text-portfolio-light">{cert.description}</p>
+                      <p className="mt-2 text-muted-foreground">{cert.description}</p>
                     </div>
                   </div>
                 </div>
