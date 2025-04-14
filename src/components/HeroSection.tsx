@@ -27,9 +27,9 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-white to-gray-50"
+      className="min-h-screen flex items-center pt-16 bg-gradient-to-b from-white to-gray-50 relative"
     >
-      <div className="container">
+      <div className="container relative">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6 animate-fade-in">
             <div>
@@ -48,18 +48,18 @@ const HeroSection = () => {
                 Govardhan Khadakkar.
               </h1>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-portfolio-light">
-                I build scalable data systems.
+                I build data-driven solutions.
               </h2>
             </div>
             <p className="text-lg text-portfolio-light max-w-xl">
-              I'm a Software Engineer with 5+ years of experience specializing in building scalable data systems and applications. Currently, I'm focused on developing cloud-based data platforms at{" "}
+              I'm a Software Engineer with 5+ years of experience specializing in data engineering and cloud solutions. Currently pursuing my Master's in Computer Science at{" "}
               <a
                 href="https://missouri.edu"
                 className="text-portfolio-accent hover:underline"
               >
                 University of Missouri-Columbia
               </a>
-              .
+              , I'm passionate about building scalable data systems and cloud-native applications.
             </p>
           </div>
           <div className="hidden md:flex justify-center">

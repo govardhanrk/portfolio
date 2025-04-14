@@ -5,7 +5,7 @@ const EducationSection = () => {
   const education = [
     {
       degree: "Master of Science in Computer Science",
-      institution: "University of Missouri, Columbia, USA",
+      University: "University of Missouri, Columbia, USA",
       date: "Expected May 2025",
       description:
         "Pursuing advanced studies in computer science with focus on data systems and cloud computing.",
@@ -14,11 +14,11 @@ const EducationSection = () => {
         "Volunteer, Electrical Engineering and Computer Science Graduate Student Association",
         "Specializing in data engineering and cloud technologies",
       ],
-      icon: <GraduationCap className="w-6 h-6 text-portfolio-accent" />,
+      icon: <GraduationCap className="w-5 h-5 text-portfolio-accent" />,
     },
     {
       degree: "Bachelor of Engineering in Information Technology",
-      institution: "Sant Gadge Baba Amravati University, India",
+      University: "Sant Gadge Baba Amravati University, India",
       date: "June 2019",
       description:
         "Comprehensive study of information technology, software development, and system design.",
@@ -27,7 +27,20 @@ const EducationSection = () => {
         "Practical experience in database management and system architecture",
         "Project work in data analysis and web development",
       ],
-      icon: <Award className="w-6 h-6 text-portfolio-accent" />,
+      icon: <Award className="w-5 h-5 text-portfolio-accent" />,
+    },
+    {
+      degree: "Diploma in Computer Engineering",
+      University: "Maharashtra State Board of Technical Education (MSBTE), India",
+      date: "June 2016",
+      description:
+        "Focused study of computer engineering fundamentals and practical applications.",
+      achievements: [
+        "Developed strong foundation in computer hardware and software",
+        "Hands-on experience with computer networks and system administration",
+        "Completed projects in computer architecture and digital electronics",
+      ],
+      icon: <Award className="w-5 h-5 text-portfolio-accent" />,
     },
   ];
 
@@ -35,35 +48,37 @@ const EducationSection = () => {
     <section id="education" className="bg-white">
       <div className="container">
         <h2 className="section-heading">Education</h2>
-        <div className="space-y-12">
+        <div className="space-y-8">
           {education.map((edu, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
+              className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
             >
-              <div className="flex items-start md:items-center flex-col md:flex-row gap-6">
-                <div className="bg-gray-50 p-4 rounded-full">
+              <div className="flex items-start gap-4">
+                <div className="bg-gray-50 p-3 rounded-full">
                   {edu.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-portfolio-navy">
-                    {edu.degree}
-                  </h3>
-                  <p className="text-portfolio-light text-lg">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                    <h3 className="text-lg font-bold text-portfolio-navy">
+                      {edu.degree}
+                    </h3>
+                    <div className="flex items-center text-sm text-portfolio-light">
+                      <Calendar className="w-4 h-4 mr-1" />
+                      {edu.date}
+                    </div>
+                  </div>
+                  <p className="text-portfolio-light text-base">
                     {edu.institution}
                   </p>
-                  <div className="flex items-center mt-2 text-sm text-portfolio-light">
-                    <Calendar className="w-4 h-4 mr-2" />
-                    {edu.date}
-                  </div>
-                  <p className="mt-3 text-portfolio-light">
+                  <p className="mt-2 text-portfolio-light text-sm">
                     {edu.description}
                   </p>
-                  <div className="mt-4">
-                    <h4 className="text-sm font-semibold text-portfolio-navy mb-2">
-                      Achievements:
+                  <div className="mt-3">
+                    <h4 className="text-sm font-semibold text-portfolio-navy mb-1">
+                      Achievements and Activities:
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-1">
                       {edu.achievements.map((achievement, idx) => (
                         <li
                           key={idx}

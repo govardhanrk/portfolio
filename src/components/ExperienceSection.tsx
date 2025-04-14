@@ -8,7 +8,7 @@ const ExperienceSection = () => {
     {
       company: "University of Missouri",
       logo: "/images/company-logos/mizzou.png",
-      title: "Software Engineer",
+      title: "Graduate Research Assistant (Backend Developer)",
       date: "January 2024 - Present",
       responsibilities: [
         "Engineered a cloud-based data platform utilizing microservices with Docker containerization and AWS infrastructure for plant-protein-phosphorylation research data analysis",

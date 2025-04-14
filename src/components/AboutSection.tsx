@@ -20,6 +20,10 @@ const AboutSection = () => {
     "MongoDB",
     "MySQL",
     "PostgreSQL",
+    "Databricks",
+    "Qlik",
+    "Machine Learning",
+    "Data Warehousing"
   ];
 
   return (
@@ -29,22 +33,23 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-3 gap-10 items-start">
           <div className="md:col-span-2 space-y-4 text-portfolio-light">
             <p>
-              Hello! I'm Govardhan Khadakkar, an experienced Software Engineer based in Columbia, Missouri.
-              I specialize in building scalable data systems and applications, with expertise in Python, Java, SQL,
-              and big data tools like Apache Spark and Kafka.
+              Hello! I'm Govardhan Khadakkar, a Software Engineer and Data Science enthusiast based in Columbia, Missouri.
+              I specialize in data engineering, cloud solutions, and building scalable applications, with expertise in Python, Java, SQL,
+              and big data technologies like Apache Spark, Kafka, and Databricks.
             </p>
             <p>
               I'm currently pursuing my Master of Science in Computer Science at the University of Missouri,
               Columbia, expected to graduate in May 2025. With over 5 years of professional experience,
               I've worked at leading companies like Tech Mahindra, LTIMINDTREE, and Siemens Healthineers,
-              delivering impactful solutions that drive business growth.
+              delivering impactful solutions in data engineering and cloud computing.
             </p>
             <p>
-              Currently, I'm focused on developing cloud-based data platforms at{" "}
+              My recent work at{" "}
               <a href="https://missouri.edu" className="text-portfolio-accent hover:underline">
                 University of Missouri-Columbia
               </a>
-              , where I'm engineering solutions for plant-protein-phosphorylation research data analysis.
+              {" "}focuses on developing cloud-based data platforms and implementing machine learning solutions for research data analysis.
+              I'm particularly interested in data warehousing, ETL optimization, and building scalable cloud infrastructure.
             </p>
             <p>Here are the key technologies I work with:</p>
             <ul className="grid grid-cols-2 gap-2 mt-4">
