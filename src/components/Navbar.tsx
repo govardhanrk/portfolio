@@ -42,21 +42,45 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#hero" className="text-2xl font-bold text-foreground group relative">
-          <span className="text-portfolio-accent transition-all duration-300">{"<"}</span>
-          <span 
-            className="group-hover:text-portfolio-accent transition-all duration-300"
-            style={{
-              opacity: scrollProgress > 0.4 ? scrollProgress : 0,
-              transform: `scale(${0.3 + (scrollProgress * 0.7)})`,
-              transformOrigin: 'left center',
-              transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
-            }}
-          >
-            Govardhan Khadakkar
-          </span>
-          <span className="text-portfolio-accent transition-all duration-300">{"/"}</span>
-          <span className="text-portfolio-accent transition-all duration-300">{">"}</span>
+        <a href="#hero" className="text-2xl font-bold text-foreground group relative flex items-center">
+          <div className="flex items-center relative">
+            <span className="text-portfolio-accent">{"<"}</span>
+            <div className="relative overflow-hidden" style={{ width: scrollProgress > 0.4 ? 'auto' : '0' }}>
+              <span 
+                className="group-hover:text-portfolio-accent whitespace-nowrap"
+                style={{
+                  opacity: scrollProgress > 0.4 ? scrollProgress : 0,
+                  transform: `translateX(${scrollProgress > 0.4 ? '0' : '-100%'})`,
+                  transition: 'transform 0.3s ease-out, opacity 0.3s ease-out',
+                  display: 'inline-block'
+                }}
+              >
+                Govardhan Khadakkar
+              </span>
+            </div>
+            <span 
+              className="text-portfolio-accent"
+              style={{
+                position: 'absolute',
+                left: '1em',
+                transform: `translateX(${scrollProgress > 0.4 ? 'calc(43vw - 20em)' : '0'})`,
+                transition: 'transform 0.3s ease-out'
+              }}
+            >
+              {"/"}
+            </span>
+            <span 
+              className="text-portfolio-accent"
+              style={{
+                position: 'absolute',
+                left: '1.5em',
+                transform: `translateX(${scrollProgress > 0.4 ? 'calc(40vw - 18em)' : '0'})`,
+                transition: 'transform 0.3s ease-out'
+              }}
+            >
+              {">"}
+            </span>
+          </div>
         </a>
 
         {/* Desktop Navigation */}

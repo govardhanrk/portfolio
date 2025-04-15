@@ -74,59 +74,60 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="bg-muted">
+    <section id="experience" className="bg-pattern">
       <div className="container">
-        <h2 className="section-heading">Where I've Worked</h2>
-        <div className="md:grid md:grid-cols-4 gap-8">
-          {/* Tabs */}
-          <div className="mb-6 md:mb-0">
-            <div className="flex md:flex-col overflow-x-auto scrollbar-none md:border-l-0 md:border-l-2 border-border">
-              {experiences.map((experience, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveTabIndex(idx)}
-                  className={`px-5 py-4 text-base font-medium whitespace-nowrap transition-colors duration-300 flex items-center ${
-                    idx === activeTabIndex
-                      ? "text-portfolio-accent border-b-2 md:border-b-0 md:border-l-2 border-portfolio-accent md:-ml-[2px]"
-                      : "text-muted-foreground hover:text-foreground hover:bg-accent"
-                  }`}
-                >
-                  <div className="w-8 h-8 mr-3 flex-shrink-0">
-                    <img 
-                      src={experience.logo} 
-                      alt={`${experience.company} logo`}
-                      className="w-full h-full object-contain"
-                      onError={(e) => {
-                        // Fallback to a placeholder if image fails to load
-                        e.currentTarget.src = "/images/placeholder-logo.svg";
-                      }}
-                    />
+        <h2 className="section-heading gradient-text">Where I've Worked</h2>
+        
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent/20 hidden md:block" />
+          
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div
+                key={index}
+                className="modern-card relative md:ml-8"
+              >
+                {/* Timeline dot */}
+                <div className="absolute -left-4 top-6 w-8 h-8 rounded-full bg-accent hidden md:block" />
+                
+                <div className="p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-lg overflow-hidden bg-card shadow-lg">
+                      <img
+                        src={exp.logo}
+                        alt={exp.company}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <h3 className="text-xl font-bold text-foreground">
+                          {exp.title}
+                        </h3>
+                        <span className="text-sm text-accent font-medium">
+                          {exp.date}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground mb-4">
+                        {exp.company}
+                      </p>
+                      <ul className="space-y-2">
+                        {exp.responsibilities.map((resp, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-start text-muted-foreground"
+                          >
+                            <span className="text-accent mr-2 mt-1">▹</span>
+                            <span>{resp}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                  {experience.company}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Content */}
-          <div className="md:col-span-3 animate-fade-in">
-            <div className="space-y-4">
-              <div className="flex items-center space-x-2">
-                <Briefcase className="text-portfolio-accent" size={20} />
-                <h3 className="text-xl font-bold text-foreground">
-                  {experiences[activeTabIndex].title}
-                </h3>
+                </div>
               </div>
-              <p className="text-muted-foreground">{experiences[activeTabIndex].date}</p>
-              <ul className="space-y-2">
-                {experiences[activeTabIndex].responsibilities.map((responsibility, idx) => (
-                  <li key={idx} className="flex items-start space-x-2 text-muted-foreground">
-                    <span className="text-portfolio-accent mt-1">▹</span>
-                    <span>{responsibility}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            ))}
           </div>
         </div>
       </div>

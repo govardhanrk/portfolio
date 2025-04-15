@@ -4,67 +4,79 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent unwanted vertical lines */
+*::before,
+*::after {
+  pointer-events: none !important;
+}
+
+[class*="fh-w-"],
+[class*="fh-h-"],
+[class*="section.fh"] {
+  display: none !important;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 60 13% 97%;
+    --foreground: 200 24% 18%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 200 24% 18%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 200 24% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 200 24% 18%;
+    --primary-foreground: 60 13% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 25% 85%;
+    --secondary-foreground: 200 24% 18%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 25% 85%;
+    --muted-foreground: 200 24% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 142 31% 24%;
+    --accent-foreground: 60 13% 97%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 60 13% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 210 25% 85%;
+    --input: 210 25% 85%;
+    --ring: 200 24% 18%;
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 200 24% 18%;
+    --foreground: 60 13% 97%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 200 24% 18%;
+    --card-foreground: 60 13% 97%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 200 24% 18%;
+    --popover-foreground: 60 13% 97%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 60 13% 97%;
+    --primary-foreground: 200 24% 18%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 200 24% 25%;
+    --secondary-foreground: 60 13% 97%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 200 24% 25%;
+    --muted-foreground: 200 24% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 142 31% 24%;
+    --accent-foreground: 60 13% 97%;
 
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 60 13% 97%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 200 24% 25%;
+    --input: 200 24% 25%;
+    --ring: 200 24% 65%;
   }
 
   * {
@@ -83,14 +95,44 @@
 
   section {
     @apply relative;
+    position: relative;
+    isolation: isolate;
   }
 
   section:not(#hero) {
     @apply py-20 md:py-28;
+    margin-top: -2rem;
+    padding-top: 6rem;
+  }
+
+  section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      hsl(var(--background)) 0%,
+      hsl(var(--muted)) 100%
+    );
+    z-index: -1;
+    transform: skewY(-3deg);
+    transform-origin: top left;
+  }
+
+  section:nth-child(even)::before {
+    transform: skewY(3deg);
+    transform-origin: top right;
+  }
+
+  /* Remove the vertical line */
+  section::after {
+    display: none;
   }
 
   .container {
     @apply px-5 sm:px-8 mx-auto max-w-6xl;
+    position: relative;
+    z-index: 1;
   }
 
   .section-heading {
@@ -99,16 +141,46 @@
 
   .section-heading::after {
     content: "";
-    @apply absolute -bottom-3 left-0 w-1/3 h-1 bg-portfolio-accent;
+    @apply absolute -bottom-3 left-0 w-1/3 h-1 bg-accent;
   }
   
   .nav-item {
-    @apply px-4 py-2 text-muted-foreground hover:text-portfolio-accent transition-colors duration-300;
+    @apply px-4 py-2 text-muted-foreground hover:text-accent transition-colors duration-300;
   }
 
   .btn-primary {
-    @apply bg-transparent border-2 border-portfolio-accent text-portfolio-accent px-6 py-3 rounded font-medium 
-    hover:bg-portfolio-accent/10 transition-colors duration-300;
+    @apply bg-transparent border-2 border-accent text-accent px-6 py-3 rounded font-medium 
+    hover:bg-accent/10 transition-colors duration-300;
+  }
+
+  /* Modern card styles */
+  .modern-card {
+    @apply bg-card rounded-lg overflow-hidden shadow-lg transition-all duration-300;
+    position: relative;
+    z-index: 2;
+  }
+
+  .modern-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      45deg,
+      hsl(var(--accent) / 0.1),
+      hsl(var(--accent) / 0.05)
+    );
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .modern-card:hover::before {
+    opacity: 1;
+  }
+
+  .modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -15px hsl(var(--accent) / 0.2);
   }
 }
 
@@ -118,11 +190,25 @@
   }
 
   .link-underline::after {
-    @apply content-[''] bg-portfolio-accent h-[2px] w-0 left-0 -bottom-[5px] rounded-xl absolute 
+    @apply content-[''] bg-accent h-[2px] w-0 left-0 -bottom-[5px] rounded-xl absolute 
     duration-300;
   }
 
   .link-underline:hover::after {
     @apply w-full;
+  }
+
+  /* Gradient text effect */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent/80;
+  }
+
+  /* Subtle background pattern */
+  .bg-pattern {
+    background-image: radial-gradient(
+      hsl(var(--accent) / 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
   }
 }

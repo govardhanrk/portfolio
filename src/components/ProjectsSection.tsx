@@ -55,9 +55,9 @@ const ProjectsSection = () => {
         : projects.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="bg-muted py-20">
+    <section id="projects" className="bg-pattern">
       <div className="container">
-        <h2 className="section-heading">Projects I've Built</h2>
+        <h2 className="section-heading gradient-text">Projects I've Built</h2>
         
         {/* Filter buttons */}
         <div className="flex flex-wrap justify-center mb-10 gap-2">
@@ -65,10 +65,10 @@ const ProjectsSection = () => {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-300 ${
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
                 filter === category
-                  ? "bg-portfolio-accent text-white"
-                  : "bg-accent text-muted-foreground hover:bg-accent/80"
+                  ? "bg-accent text-accent-foreground shadow-lg shadow-accent/20"
+                  : "bg-card text-muted-foreground hover:bg-accent/10 hover:text-accent"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -81,15 +81,15 @@ const ProjectsSection = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={index}
-              className="bg-card rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 border border-border"
+              className="modern-card"
             >
               {/* Project image */}
-              <div className="relative aspect-video">
-                <div className="absolute inset-0 bg-foreground/20 hover:bg-opacity-0 transition-all duration-300 z-10"></div>
+              <div className="relative aspect-video overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent z-10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-300"
                 />
               </div>
 
@@ -98,7 +98,7 @@ const ProjectsSection = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     {project.featured && (
-                      <span className="text-xs font-mono text-portfolio-accent mb-1 block">
+                      <span className="text-xs font-mono text-accent mb-1 block">
                         Featured Project
                       </span>
                     )}
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-portfolio-accent transition-colors duration-300"
+                        className="text-muted-foreground hover:text-accent transition-colors duration-300"
                       >
                         <Github size={18} />
                         <span className="sr-only">GitHub</span>
@@ -136,7 +136,9 @@ const ProjectsSection = () => {
                 </p>
                 <ul className="flex flex-wrap text-xs font-mono text-muted-foreground gap-x-3 gap-y-2">
                   {project.technologies.map((tech) => (
-                    <li key={tech}>{tech}</li>
+                    <li key={tech} className="bg-muted/50 px-2 py-1 rounded-full">
+                      {tech}
+                    </li>
                   ))}
                 </ul>
               </div>
