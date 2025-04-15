@@ -51,8 +51,8 @@ const Footer = () => {
         </div>
         <div className="mt-8 text-center text-xs text-portfolio-light">
           <p>
-            Designed and built with React, Tailwind CSS, and{" "}
-            <span className="text-portfolio-accent">❤</span>
+          Deployed to Vercel. Crafted with React, Tailwind CSS, and{" "}
+            <span className="text-portfolio-accent">❤</span>{" "}
           </p>
         </div>
       </div>

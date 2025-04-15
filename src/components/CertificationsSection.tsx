@@ -9,7 +9,7 @@ const CertificationsSection = () => {
       name: "Foundational C# with Microsoft",
       issuer: "Microsoft",
       date: "April 2025",
-      credentialId: "fcc729aaf0d-c6ad-4a18-98ce-77f6756daab0-fcswm",
+      credentialId: "https://www.freecodecamp.org/certification/fcc729aaf0d-c6ad-4a18-98ce-77f6756daab0/foundational-c-sharp-with-microsoft",
       description: "Comprehensive understanding of C# programming fundamentals and Microsoft development tools.",
       icon: <Medal className="w-6 h-6 text-portfolio-accent" />,
     },
@@ -17,7 +17,7 @@ const CertificationsSection = () => {
       name: "ETL in Python and SQL",
       issuer: "LinkedIn",
       date: "March 2025",
-      credentialId: "LinkedIn-ETL",
+      credentialId: "https://www.linkedin.com/learning/certificates/1dfbade7245a08320e273146cfe6a223c6154e35981a47340e6cf6b7671fb49a",
       description: "Expertise in Extract, Transform, Load (ETL) processes using Python and SQL for data engineering.",
       icon: <BadgeCheck className="w-6 h-6 text-portfolio-accent" />,
     },
@@ -25,7 +25,7 @@ const CertificationsSection = () => {
       name: "Intro to Deep Learning",
       issuer: "Kaggle",
       date: "March 2025",
-      credentialId: "Kaggle-DL",
+      credentialId: "https://www.kaggle.com/learn/certification/govardhankhadakkar/intro-to-deep-learning",
       description: "Foundational knowledge in deep learning and data classification techniques.",
       icon: <Award className="w-6 h-6 text-portfolio-accent" />,
     },
@@ -63,7 +63,15 @@ const CertificationsSection = () => {
                     <div className="mt-2">
                       <div className="flex items-center text-sm text-muted-foreground">
                         <CheckCircle className="w-4 h-4 mr-2 text-portfolio-accent" />
-                        <span>Credential ID: {cert.credentialId}</span>
+                        
+                        <a 
+                          href={cert.credentialId}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-portfolio-accent hover:underline ml-1"
+                        >
+                          View Certificate
+                        </a>
                       </div>
                       <p className="mt-2 text-muted-foreground">{cert.description}</p>
                     </div>
