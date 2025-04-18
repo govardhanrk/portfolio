@@ -1,9 +1,7 @@
-import React, { useState } from "react";
-import { Briefcase } from "lucide-react";
+import React from "react";
+import { Briefcase, Calendar } from "lucide-react";
 
 const ExperienceSection = () => {
-  const [activeTabIndex, setActiveTabIndex] = useState(0);
-
   const experiences = [
     {
       company: "University of Missouri",
@@ -17,6 +15,10 @@ const ExperienceSection = () => {
         "Configured infrastructure on EC2 instances, including domain configuration, SSL certification, and server setup",
         "Implemented automated deployment workflows with Docker and AWS, reducing release cycle time by 40%",
       ],
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      bgColor: "bg-blue-600",
+      accentColor: "bg-blue-50",
+      textColor: "text-blue-600",
     },
     {
       company: "Siemens Healthineers",
@@ -30,6 +32,10 @@ const ExperienceSection = () => {
         "Developed automation scripts with Python to streamline data preprocessing and transformation workflows",
         "Leveraged Databricks to streamline data workflows and enhance collaboration among data teams",
       ],
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      bgColor: "bg-green-600",
+      accentColor: "bg-green-50",
+      textColor: "text-green-600",
     },
     {
       company: "Tech Mahindra",
@@ -44,6 +50,10 @@ const ExperienceSection = () => {
         "Optimized PostgreSQL and SQL Server databases, improving data access performance by 25%",
         "Led a team of 4 engineers, mentoring them in backend development and cloud deployment",
       ],
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      bgColor: "bg-purple-600",
+      accentColor: "bg-purple-50",
+      textColor: "text-purple-600",
     },
     {
       company: "LTIMINDTREE",
@@ -58,6 +68,10 @@ const ExperienceSection = () => {
         "Enhanced system stability by reducing memory consumption by 15% in high-traffic applications",
         "Implemented comprehensive CI/CD pipeline with Jenkins for automated build, test, and deployment processes",
       ],
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      bgColor: "bg-indigo-600",
+      accentColor: "bg-indigo-50",
+      textColor: "text-indigo-600",
     },
     {
       company: "Tata Consultancy Services",
@@ -70,60 +84,82 @@ const ExperienceSection = () => {
         "Provided technical support and troubleshooting for 7+ security incidents daily",
         "Created and maintained regular reports on security incidents and platforms to analyze risk and identify trends",
       ],
+      icon: <Briefcase className="w-6 h-6 text-white" />,
+      bgColor: "bg-red-600",
+      accentColor: "bg-red-50",
+      textColor: "text-red-600",
     },
   ];
 
   return (
-    <section id="experience" className="bg-pattern">
+    <section id="experience" className="bg-background py-16">
       <div className="container">
-        <h2 className="section-heading gradient-text">Where I've Worked</h2>
+        <h2 className="section-heading">Where I've Worked</h2>
         
-        <div className="relative">
+        <div className="relative max-w-4xl mx-auto">
           {/* Timeline line */}
           <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent/20 hidden md:block" />
           
-          <div className="space-y-12">
+          <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div
                 key={index}
-                className="modern-card relative md:ml-8"
+                className="relative group"
               >
                 {/* Timeline dot */}
-                <div className="absolute -left-4 top-6 w-8 h-8 rounded-full bg-accent hidden md:block" />
+                <div 
+                  className={`absolute -left-[34px] top-0 w-16 h-16 rounded-full ${exp.bgColor} 
+                    hidden md:flex items-center justify-center shadow-lg transform 
+                    transition-all duration-300 group-hover:scale-110`}
+                >
+                  {exp.icon}
+                </div>
                 
-                <div className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-lg overflow-hidden bg-card shadow-lg">
-                      <img
-                        src={exp.logo}
-                        alt={exp.company}
-                        className="w-full h-full object-contain p-2"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-                        <h3 className="text-xl font-bold text-foreground">
-                          {exp.title}
-                        </h3>
-                        <span className="text-sm text-accent font-medium">
-                          {exp.date}
-                        </span>
+                <div 
+                  className={`border rounded-xl shadow-md 
+                  transition-all duration-300 hover:shadow-xl hover:-translate-y-2 
+                  md:ml-16 relative overflow-hidden 
+                  ${exp.accentColor} border-transparent`}
+                >
+                  <div 
+                    className="bg-card border border-border rounded-xl p-6 relative z-10"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center space-x-4">
+                        <div className="w-12 h-12 p-2 bg-white rounded-lg shadow-md flex items-center justify-center">
+                          <img
+                            src={exp.logo}
+                            alt={`${exp.company} logo`}
+                            className="object-contain max-w-full max-h-full"
+                          />
+                        </div>
+                        <div>
+                          <h3 className="text-lg font-bold text-foreground">
+                            {exp.title}
+                          </h3>
+                          <p className="text-muted-foreground text-sm">
+                            {exp.company}
+                          </p>
+                        </div>
                       </div>
-                      <p className="text-muted-foreground mb-4">
-                        {exp.company}
-                      </p>
-                      <ul className="space-y-2">
-                        {exp.responsibilities.map((resp, idx) => (
-                          <li
-                            key={idx}
-                            className="flex items-start text-muted-foreground"
-                          >
-                            <span className="text-accent mr-2 mt-1">▹</span>
-                            <span>{resp}</span>
-                          </li>
-                        ))}
-                      </ul>
+                      <div className="text-sm text-muted-foreground">
+                        {exp.date}
+                      </div>
                     </div>
+                    
+                    <ul className="space-y-1 text-muted-foreground text-sm">
+                      {exp.responsibilities.map((resp, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start"
+                        >
+                          <span className={`mr-3 mt-1 ${exp.textColor} font-bold`}>
+                            ▹
+                          </span>
+                          <span>{resp}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

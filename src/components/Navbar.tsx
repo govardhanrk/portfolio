@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import styles from "@/styles/Navbar.module.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [isTyping, setIsTyping] = useState(false);
+  const [isErasing, setIsErasing] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,16 +17,29 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
-      const maxScroll = 600;
-      const progress = Math.min(scrollPosition / maxScroll, 1);
-      setScrollProgress(progress);
+      const heroSection = document.getElementById('hero');
+      
+      if (heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+        const progress = Math.min(scrollPosition / (heroHeight / 2), 1);
+        setScrollProgress(progress);
+
+        // Manage typing and erasing states
+        if (progress > 0.4 && !isTyping) {
+          setIsTyping(true);
+          setIsErasing(false);
+        } else if (progress <= 0.4 && isTyping) {
+          setIsTyping(false);
+          setIsErasing(true);
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isTyping]);
 
   const navLinks = [
     { name: "About", href: "#about" },
@@ -42,43 +58,37 @@ const Navbar = () => {
       }`}
     >
       <div className="container flex items-center justify-between">
-        <a href="#hero" className="text-2xl font-bold text-foreground group relative flex items-center">
-          <div className="flex items-center relative">
-            <span className="text-portfolio-accent">{"<"}</span>
-            <div className="relative overflow-hidden" style={{ width: scrollProgress > 0.4 ? 'auto' : '0' }}>
-              <span 
-                className="group-hover:text-portfolio-accent whitespace-nowrap"
-                style={{
-                  opacity: scrollProgress > 0.4 ? scrollProgress : 0,
-                  transform: `translateX(${scrollProgress > 0.4 ? '0' : '-100%'})`,
-                  transition: 'transform 0.3s ease-out, opacity 0.3s ease-out',
-                  display: 'inline-block'
-                }}
-              >
-                Govardhan Khadakkar
+        <a href="#hero" className="text-2xl font-bold text-foreground relative flex items-center">
+          <div className="flex items-center">
+            <span className="text-portfolio-accent flex items-center">
+              <span className="flex items-center relative">
+                <span className={`${scrollProgress <= 0.4 ? 'group-hover:text-portfolio-accent' : 'text-portfolio-accent'}`}>
+                  {"$"}
+                </span>
+                {scrollProgress <= 0.4 && (
+                  <span className="ml-[2px]">{""}</span>
+                )}
+                {(isTyping || isErasing) && (
+                  <div 
+                    className={`${styles.typingContainer} ml-[2px] visible`}
+                  >
+                    <span 
+                      className={`${styles.typingAnimation} ${
+                        isTyping ? styles.typing : styles.erasing
+                      } text-portfolio-accent`}
+                    >
+                      govardhan_khadakkar
+                    </span>
+                    <span 
+                      className={`${styles.cursor} ${
+                        isTyping ? styles.cursorTyping : styles.cursorErasing
+                      } text-portfolio-accent`}
+                    >
+                      _
+                    </span>
+                  </div>
+                )}
               </span>
-            </div>
-            <span 
-              className="text-portfolio-accent"
-              style={{
-                position: 'absolute',
-                left: '1em',
-                transform: `translateX(${scrollProgress > 0.4 ? 'calc(43vw - 20em)' : '0'})`,
-                transition: 'transform 0.3s ease-out'
-              }}
-            >
-              {"/"}
-            </span>
-            <span 
-              className="text-portfolio-accent"
-              style={{
-                position: 'absolute',
-                left: '1.5em',
-                transform: `translateX(${scrollProgress > 0.4 ? 'calc(40vw - 18em)' : '0'})`,
-                transition: 'transform 0.3s ease-out'
-              }}
-            >
-              {">"}
             </span>
           </div>
         </a>

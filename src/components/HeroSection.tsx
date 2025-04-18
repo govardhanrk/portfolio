@@ -75,18 +75,23 @@ const HeroSection = () => {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block">
-          <a 
-            href="#about" 
-            aria-label="Scroll down"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            <ArrowDownCircle className="text-portfolio-accent" size={36} />
-          </a>
-        </div>
+      </div>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 pb-2 hidden md:block text-center w-full">
+        <a 
+          href="#about" 
+          aria-label="Scroll down"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="flex flex-col items-center"
+        >
+          <svg className="arrows" width="60" height="80">
+            <path className="a1" d="M0 0 L30 32 L60 0" stroke="#2994D1" fill="transparent" strokeWidth="1" />
+            <path className="a2" d="M0 20 L30 52 L60 20" stroke="#2994D1" fill="transparent" strokeWidth="1" />
+            <path className="a3" d="M0 40 L30 72 L60 40" stroke="#2994D1" fill="transparent" strokeWidth="1" />
+          </svg>
+        </a>
       </div>
     </section>
   );

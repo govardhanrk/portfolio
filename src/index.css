@@ -47,6 +47,36 @@
     --ring: 200 24% 18%;
 
     --radius: 0.5rem;
+
+    /* Dynamic color variables */
+    --color-1: 142 30% 92%;
+    --color-2: 210 25% 96%;
+    --color-3: 200 25% 94%;
+    --color-4: 142 30% 96%;
+    --color-5: 210 25% 98%;
+    --color-6: 200 25% 100%;
+
+    /* Section background colors */
+    --hero-start: 142 30% 92%;
+    --hero-end: 210 25% 96%;
+    
+    --about-start: 210 25% 96%;
+    --about-end: 142 30% 94%;
+    
+    --experience-start: 142 30% 94%;
+    --experience-end: 200 25% 96%;
+    
+    --education-start: 200 25% 96%;
+    --education-end: 200 25% 97%;
+    
+    --projects-start: 200 25% 97%;
+    --projects-end: 142 30% 96%;
+    
+    --certifications-start: 142 30% 96%;
+    --certifications-end: 142 30% 98%;
+    
+    --contact-start: 142 30% 98%;
+    --contact-end: 200 25% 100%;
   }
 
   .dark {
@@ -77,6 +107,36 @@
     --border: 200 24% 25%;
     --input: 200 24% 25%;
     --ring: 200 24% 65%;
+
+    /* Dark mode dynamic colors */
+    --color-1: 200 24% 12%;
+    --color-2: 142 20% 15%;
+    --color-3: 200 24% 18%;
+    --color-4: 142 20% 20%;
+    --color-5: 200 24% 22%;
+    --color-6: 142 20% 24%;
+
+    /* Dark mode section background colors */
+    --hero-start: 200 24% 12%;
+    --hero-end: 142 20% 15%;
+    
+    --about-start: 142 20% 15%;
+    --about-end: 200 24% 18%;
+    
+    --experience-start: 200 24% 18%;
+    --experience-end: 200 24% 20%;
+    
+    --education-start: 200 24% 20%;
+    --education-end: 200 24% 21%;
+    
+    --projects-start: 200 24% 21%;
+    --projects-end: 142 20% 22%;
+    
+    --certifications-start: 142 20% 22%;
+    --certifications-end: 142 20% 24%;
+    
+    --contact-start: 142 20% 24%;
+    --contact-end: 200 24% 26%;
   }
 
   * {
@@ -97,36 +157,148 @@
     @apply relative;
     position: relative;
     isolation: isolate;
+    overflow: hidden;
+  }
+
+  /* Hero section */
+  #hero {
+    background: linear-gradient(180deg,
+      hsl(142 30% 92%) 0%,
+      hsl(210 25% 96%) 100%
+    );
+  }
+
+  /* About section */
+  #about {
+    background: linear-gradient(180deg,
+      hsl(210 25% 96%) 0%,
+      hsl(142 30% 94%) 100%
+    );
+  }
+
+  /* Experience section */
+  #experience {
+    background: linear-gradient(180deg,
+      hsl(142 30% 94%) 0%,
+      hsl(200 25% 96%) 100%
+    );
+  }
+
+  /* Education section */
+  #education {
+    background: linear-gradient(180deg,
+      hsl(200 25% 96%) 0%,
+      hsl(200 25% 97%) 100%
+    );
+  }
+
+  /* Projects section */
+  #projects {
+    background: linear-gradient(180deg,
+      hsl(200 25% 97%) 0%,
+      hsl(210 25% 97%) 100%
+    );
+  }
+
+  /* Certifications section */
+  #certifications {
+    background: linear-gradient(180deg,
+      hsl(210 25% 97%) 0%,
+      hsl(142 30% 98%) 100%
+    );
+  }
+
+  /* Contact section */
+  #contact {
+    background: linear-gradient(180deg,
+      hsl(142 30% 98%) 0%,
+      hsl(200 25% 99%) 100%
+    );
+  }
+
+  /* Footer */
+  footer {
+    background: linear-gradient(180deg,
+      hsl(200 25% 99%) 0%,
+      hsl(200 25% 98%) 100%
+    );
+  }
+
+  /* Dark mode section backgrounds */
+  .dark #hero {
+    background: linear-gradient(180deg,
+      hsl(200 24% 12%) 0%,
+      hsl(142 20% 15%) 100%
+    );
+  }
+
+  .dark #about {
+    background: linear-gradient(180deg,
+      hsl(142 20% 15%) 0%,
+      hsl(200 24% 18%) 100%
+    );
+  }
+
+  .dark #experience {
+    background: linear-gradient(180deg,
+      hsl(200 24% 18%) 0%,
+      hsl(200 24% 20%) 100%
+    );
+  }
+
+  .dark #education {
+    background: linear-gradient(180deg,
+      hsl(200 24% 20%) 0%,
+      hsl(200 24% 21%) 100%
+    );
+  }
+
+  .dark #projects {
+    background: linear-gradient(180deg,
+      hsl(200 24% 21%) 0%,
+      hsl(200 24% 22%) 100%
+    );
+  }
+
+  .dark #certifications {
+    background: linear-gradient(180deg,
+      hsl(200 24% 22%) 0%,
+      hsl(142 20% 24%) 100%
+    );
+  }
+
+  .dark #contact {
+    background: linear-gradient(180deg,
+      hsl(142 20% 24%) 0%,
+      hsl(200 24% 26%) 100%
+    );
+  }
+
+  .dark footer {
+    background: linear-gradient(180deg,
+      hsl(200 24% 26%) 0%,
+      hsl(200 24% 25%) 100%
+    );
+  }
+
+  /* Subtle pattern overlay */
+  section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      hsl(var(--accent) / 0.1) 1px,
+      transparent 1px
+    );
+    background-size: 20px 20px;
+    opacity: 0.5;
+    z-index: -1;
   }
 
   section:not(#hero) {
     @apply py-20 md:py-28;
     margin-top: -2rem;
     padding-top: 6rem;
-  }
-
-  section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to bottom,
-      hsl(var(--background)) 0%,
-      hsl(var(--muted)) 100%
-    );
-    z-index: -1;
-    transform: skewY(-3deg);
-    transform-origin: top left;
-  }
-
-  section:nth-child(even)::before {
-    transform: skewY(3deg);
-    transform-origin: top right;
-  }
-
-  /* Remove the vertical line */
-  section::after {
-    display: none;
   }
 
   .container {
@@ -155,7 +327,7 @@
 
   /* Modern card styles */
   .modern-card {
-    @apply bg-card rounded-lg overflow-hidden shadow-lg transition-all duration-300;
+    @apply bg-card/80 backdrop-blur-sm rounded-lg overflow-hidden shadow-lg transition-all duration-300;
     position: relative;
     z-index: 2;
   }
@@ -211,4 +383,57 @@
     );
     background-size: 20px 20px;
   }
+}
+
+/* Arrow Animation Styles */
+.arrows {
+  width: 60px;
+  height: 80px;
+  position: relative;
+  margin: 0 auto;
+  bottom: -10px;
+}
+
+@media (max-width: 768px) {
+  .arrows {
+    width: 50px;
+    height: 60px;
+  }
+}
+
+.arrows path {
+  stroke: #2994D1;
+  fill: transparent;
+  stroke-width: 1px;	
+  animation: arrow 2s infinite;
+  -webkit-animation: arrow 2s infinite; 
+}
+
+@keyframes arrow {
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+  0% {opacity:0}
+  40% {opacity:1}
+  80% {opacity:0}
+  100% {opacity:0}
+}
+
+.arrows path.a1 {
+  animation-delay:-1s;
+  -webkit-animation-delay:-1s; /* Safari and Chrome */
+}
+
+.arrows path.a2 {
+  animation-delay:-0.5s;
+  -webkit-animation-delay:-0.5s; /* Safari and Chrome */
+}
+
+.arrows path.a3 {	
+  animation-delay:0s;
+  -webkit-animation-delay:0s; /* Safari and Chrome */
 }

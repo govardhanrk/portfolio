@@ -1,0 +1,85 @@
+@keyframes typing {
+  from { 
+    width: 0;
+  }
+  to { 
+    width: 100%;
+  }
+}
+
+@keyframes erasing {
+  from { 
+    width: 100%;
+  }
+  to { 
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes cursorMove {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+@keyframes cursorErase {
+  0% { left: 100%; }
+  100% { left: 0; }
+}
+
+.typingContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+}
+
+.typingAnimation {
+  display: inline-block;
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: normal;
+}
+
+.typing {
+  animation: typing 1s steps(25, end) forwards;
+}
+
+.erasing {
+  animation: erasing 1s steps(25, end) forwards;
+}
+
+.cursor {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  line-height: normal;
+  margin-left: 2px;
+}
+
+.cursorTyping {
+  animation: 
+    blink 0.7s step-end infinite,
+    cursorMove 1s steps(25, end) forwards;
+}
+
+.cursorErasing {
+  animation: 
+    blink 0.7s step-end infinite,
+    cursorErase 1s steps(25, end) forwards;
+}
+
+/* Reset animation when not hovering over the group */
+:global(.group:not(:hover)) .typingAnimation {
+  width: 0;
+  animation: none;
+}
+
+:global(.group:not(:hover)) .cursor {
+  display: none;
+} 
