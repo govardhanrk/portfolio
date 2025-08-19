@@ -4,69 +4,59 @@ const path = require('path');
 // Get the Formspree form ID from environment variable
 const formspreeFormId = process.env.FORMSPREE_FORM_ID || 'xgvzbogw';
 
-// Path to the production environment file
+// Paths to the environment files
 const envProdPath = path.join(__dirname, '../src/environments/environment.prod.ts');
+const envDevPath = path.join(__dirname, '../src/environments/environment.ts');
 
 console.log(`🔧 Building with Formspree form ID: ${formspreeFormId}`);
-console.log(`📁 Looking for environment file at: ${envProdPath}`);
+console.log(`📁 Looking for environment files...`);
 
-// Check if the environment file exists
-if (!fs.existsSync(envProdPath)) {
-  console.error(`❌ Environment file not found: ${envProdPath}`);
-  console.log('🔍 Checking if environments directory exists...');
-  
-  const envDir = path.dirname(envProdPath);
-  if (fs.existsSync(envDir)) {
-    console.log(`✅ Environments directory exists: ${envDir}`);
-    const files = fs.readdirSync(envDir);
-    console.log(`📄 Files in environments directory: ${files.join(', ')}`);
-  } else {
-    console.error(`❌ Environments directory not found: ${envDir}`);
-  }
-  
-  // Create the environment file if it doesn't exist
-  console.log('🛠️ Creating environment file...');
-  const envContent = `// Production environment configuration
+// Function to create environment file content
+function createEnvironmentContent(formId, isProduction = false) {
+  return `// Environment configuration
 export const environment = {
-  production: true,
+  production: ${isProduction},
   email: {
     formspree: {
-      formId: '${formspreeFormId}',
+      formId: '${formId}',
       enabled: true
     }
   }
 };`;
+}
 
-  try {
-    // Ensure the directory exists
-    const envDir = path.dirname(envProdPath);
-    if (!fs.existsSync(envDir)) {
-      fs.mkdirSync(envDir, { recursive: true });
-    }
-    
-    fs.writeFileSync(envProdPath, envContent);
-    console.log(`✅ Created environment file: ${envProdPath}`);
-  } catch (error) {
-    console.error(`❌ Error creating environment file: ${error.message}`);
-    process.exit(1);
+// Function to ensure environment file exists
+function ensureEnvironmentFile(filePath, formId, isProduction = false) {
+  console.log(`📁 Looking for environment file at: ${filePath}`);
+  
+  const envDir = path.dirname(filePath);
+  
+  // Ensure the directory exists
+  if (!fs.existsSync(envDir)) {
+    console.log(`🛠️ Creating environments directory: ${envDir}`);
+    fs.mkdirSync(envDir, { recursive: true });
   }
-} else {
-  try {
-    // Read the current content
-    let content = fs.readFileSync(envProdPath, 'utf8');
-
-    // Replace any form ID with the environment variable
-    content = content.replace(
-      /formId: ['"`][^'"`]*['"`]/,
-      `formId: '${formspreeFormId}'`
-    );
-
-    // Write the updated content back
-    fs.writeFileSync(envProdPath, content);
-
-    console.log(`✅ Updated environment.prod.ts with Formspree form ID: ${formspreeFormId}`);
-  } catch (error) {
-    console.error(`❌ Error updating environment file: ${error.message}`);
-    process.exit(1);
+  
+  if (!fs.existsSync(filePath)) {
+    console.log(`🛠️ Creating environment file: ${filePath}`);
+    const content = createEnvironmentContent(formId, isProduction);
+    fs.writeFileSync(filePath, content);
+    console.log(`✅ Created environment file: ${filePath}`);
+  } else {
+    console.log(`📝 Updating existing environment file: ${filePath}`);
+    const content = createEnvironmentContent(formId, isProduction);
+    fs.writeFileSync(filePath, content);
+    console.log(`✅ Updated environment file: ${filePath}`);
   }
+}
+
+try {
+  // Create/update both environment files
+  ensureEnvironmentFile(envDevPath, 'xgvzbogw', false); // Development environment
+  ensureEnvironmentFile(envProdPath, formspreeFormId, true); // Production environment
+  
+  console.log(`✅ Environment files configured successfully!`);
+} catch (error) {
+  console.error(`❌ Error configuring environment files: ${error.message}`);
+  process.exit(1);
 }
