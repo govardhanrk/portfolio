@@ -11,7 +11,9 @@ const filesToRemove = [
   'tsconfig.server.json',
   'server.ts',
   'postcss.config.js',
-  'tailwind.config.ts'
+  'tailwind.config.ts',
+  'index.html', // This should be in src/, not root
+  'Profile.pdf' // Not needed for deployment
 ];
 
 // Directories to remove
@@ -35,6 +37,11 @@ const srcDirsToRemove = [
   'src/api',
   'src/pages',
   'src/components' // This contains React components, Angular components are in src/app/components
+];
+
+// Additional files to remove from src subdirectories
+const additionalFilesToRemove = [
+  'src/styles/Navbar.module.css' // React CSS module, not used in Angular
 ];
 
 console.log('🧹 Cleaning up unnecessary files for deployment...');
@@ -87,6 +94,19 @@ srcDirsToRemove.forEach(dir => {
       console.log(`✅ Removed src directory: ${dir}`);
     } catch (error) {
       console.log(`⚠️  Could not remove directory ${dir}: ${error.message}`);
+    }
+  }
+});
+
+// Remove additional files
+additionalFilesToRemove.forEach(file => {
+  const filePath = path.join(__dirname, '..', file);
+  if (fs.existsSync(filePath)) {
+    try {
+      fs.unlinkSync(filePath);
+      console.log(`✅ Removed additional file: ${file}`);
+    } catch (error) {
+      console.log(`⚠️  Could not remove ${file}: ${error.message}`);
     }
   }
 });
