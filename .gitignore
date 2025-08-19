@@ -52,3 +52,17 @@ environment.prod.ts
 
 # Vercel
 .vercel
+
+# Vite (not used in this Angular project)
+.vite/
+vite.config.ts
+bun.lockb
+
+# Other build tools
+components.json
+eslint.config.js
+tsconfig.node.json
+tsconfig.server.json
+server.ts
+postcss.config.js
+tailwind.config.ts
