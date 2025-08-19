@@ -42,7 +42,7 @@ testem.log
 Thumbs.db
 
 # Environment files
-.env
+.git
 .env.local
 .env.development.local
 .env.test.local

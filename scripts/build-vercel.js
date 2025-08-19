@@ -7,16 +7,29 @@ const formspreeFormId = process.env.FORMSPREE_FORM_ID || 'xgvzbogw';
 // Path to the production environment file
 const envProdPath = path.join(__dirname, '../src/environments/environment.prod.ts');
 
-// Read the current content
-let content = fs.readFileSync(envProdPath, 'utf8');
+console.log(`🔧 Building with Formspree form ID: ${formspreeFormId}`);
 
-// Replace the placeholder with the actual form ID
-content = content.replace(
-  /formId: 'FORMSPREE_FORM_ID_PLACEHOLDER'/,
-  `formId: '${formspreeFormId}'`
-);
+// Check if the environment file exists
+if (!fs.existsSync(envProdPath)) {
+  console.error(`❌ Environment file not found: ${envProdPath}`);
+  process.exit(1);
+}
 
-// Write the updated content back
-fs.writeFileSync(envProdPath, content);
+try {
+  // Read the current content
+  let content = fs.readFileSync(envProdPath, 'utf8');
 
-console.log(`✅ Updated environment.prod.ts with Formspree form ID: ${formspreeFormId}`);
+  // Replace any form ID with the environment variable
+  content = content.replace(
+    /formId: ['"`][^'"`]*['"`]/,
+    `formId: '${formspreeFormId}'`
+  );
+
+  // Write the updated content back
+  fs.writeFileSync(envProdPath, content);
+
+  console.log(`✅ Updated environment.prod.ts with Formspree form ID: ${formspreeFormId}`);
+} catch (error) {
+  console.error(`❌ Error updating environment file: ${error.message}`);
+  process.exit(1);
+}
