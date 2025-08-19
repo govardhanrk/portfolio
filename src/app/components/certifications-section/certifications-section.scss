@@ -1,0 +1,27 @@
+// Certifications section specific styles
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// Ensure links are clickable
+a[href] {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  position: relative;
+  z-index: 10;
+}
+
+// Make sure the card doesn't interfere with link clicks
+.group {
+  pointer-events: auto;
+}
+
+// Ensure the link button is above other elements
+.inline-flex.items-center.justify-center {
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+}

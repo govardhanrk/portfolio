@@ -1,0 +1,76 @@
+// Beyond Tech section animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--portfolio-accent-rgb), 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(var(--portfolio-accent-rgb), 0.2);
+  }
+}
+
+// Card hover effects
+.group {
+  &:hover {
+    animation: pulse-glow 2s infinite;
+  }
+}
+
+// Icon animations
+.group:hover img {
+  animation: float 3s ease-in-out infinite;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .text-4xl {
+    font-size: 2rem;
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+// Dark mode considerations
+@media (prefers-color-scheme: dark) {
+  .bg-gradient-to-br {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  }
+}
+
+// Smooth transitions
+* {
+  transition: all 0.3s ease;
+}
+
+// Custom scrollbar for the section
+section {
+  scrollbar-width: thin;
+  scrollbar-color: var(--portfolio-accent) transparent;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--portfolio-accent);
+    border-radius: 3px;
+  }
+}

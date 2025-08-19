@@ -1,0 +1,36 @@
+.about-page {
+  min-height: 100vh;
+  padding: 3rem 0 2rem 0; // Increased top padding for better spacing from navbar
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  
+
+  
+  .content-sections {
+    max-width: 1400px; // Increased max-width for better space utilization
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    .section-container {
+      margin-bottom: 4rem; // Increased spacing between sections
+      transition: all 0.3s ease;
+      // Removed background, border, shadow and padding
+    }
+  }
+}
+
+
+
+// Responsive design
+@media (max-width: 768px) {
+  .about-page {
+    padding: 2rem 0 1.5rem 0; // Increased mobile padding
+    
+    .content-sections {
+      padding: 0 1rem;
+      
+      .section-container {
+        margin-bottom: 2.5rem; // Increased mobile spacing
+      }
+    }
+  }
+}

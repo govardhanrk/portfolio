@@ -1,0 +1,24 @@
+<button
+  *ngIf="showScrollButton"
+  (click)="scrollToTop()"
+  class="fixed bottom-8 right-8 z-50 p-3 bg-portfolio-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
+  aria-label="Scroll to top"
+>
+  <svg 
+    class="w-6 h-6 transform group-hover:-translate-y-1 transition-transform duration-300" 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24"
+  >
+    <path 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      stroke-width="2" 
+      d="M5 10l7-7m0 0l7 7m-7-7v18"
+    >
+    </path>
+  </svg>
+  
+  <!-- Ripple effect -->
+  <div class="absolute inset-0 rounded-full bg-white/20 scale-0 group-hover:scale-100 transition-transform duration-300"></div>
+</button>

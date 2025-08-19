@@ -1,0 +1,121 @@
+<section id="projects" class="py-20 relative overflow-hidden bg-gradient-to-br from-card/40 via-card/30 to-card/20 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl shadow-black/20 mx-4 md:mx-8 lg:mx-12 xl:mx-20">
+  <!-- Subtle glow effect -->
+  <div class="absolute inset-0 bg-gradient-to-br from-portfolio-accent/5 via-transparent to-portfolio-accent/5 rounded-3xl"></div>
+  
+  <!-- Animated background elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Project-themed symbols -->
+    <div class="absolute top-16 left-1/4 text-muted-foreground/20 dark:text-portfolio-accent/10 text-2xl font-mono animate-pulse">
+      <img src="/images/icons/Developer.png" alt="Developer" class="w-8 h-8 opacity-20">
+    </div>
+    <div class="absolute top-32 right-1/4 text-muted-foreground/20 dark:text-portfolio-accent/10 text-xl font-mono animate-pulse delay-1000">
+      <img src="/images/icons/ETL.png" alt="ETL" class="w-6 h-6 opacity-20">
+    </div>
+    <div class="absolute bottom-32 left-1/3 text-muted-foreground/20 dark:text-portfolio-accent/10 text-3xl font-mono animate-pulse delay-500">
+      <img src="/images/icons/cloud.png" alt="Cloud" class="w-12 h-12 opacity-20">
+    </div>
+    <div class="absolute top-48 right-1/3 text-muted-foreground/20 dark:text-portfolio-accent/10 text-2xl font-mono animate-pulse delay-700">
+      <img src="/images/icons/brain_idea.png" alt="Brain Idea" class="w-8 h-8 opacity-20">
+    </div>
+    
+    <!-- Creative elements -->
+    <div class="absolute top-24 right-8 w-16 h-16 border border-muted-foreground/15 dark:border-portfolio-accent/15 rounded-full rotate-12 animate-spin-slow"></div>
+    <div class="absolute bottom-24 left-8 w-12 h-12 bg-muted-foreground/10 dark:bg-portfolio-accent/10 rounded-full animate-bounce-slow"></div>
+    <div class="absolute top-1/2 left-1/4 w-10 h-10 border-2 border-muted-foreground/20 dark:border-portfolio-accent/20 rotate-45 animate-pulse"></div>
+    
+    <!-- Innovation dots -->
+    <div class="absolute top-12 right-1/4 w-4 h-4 bg-portfolio-accent/15 dark:bg-portfolio-accent/10 rounded-full animate-ping"></div>
+    <div class="absolute bottom-16 right-12 w-3 h-3 bg-portfolio-accent/20 dark:bg-portfolio-accent/15 rounded-full animate-bounce"></div>
+    <div class="absolute top-1/3 left-1/4 w-2 h-2 bg-portfolio-accent/25 dark:bg-portfolio-accent/12 rounded-full animate-pulse"></div>
+    
+    <!-- Creative lines -->
+    <div class="absolute top-1/4 left-0 w-28 h-px bg-gradient-to-r from-transparent via-muted-foreground/20 dark:via-portfolio-accent/20 to-transparent"></div>
+    <div class="absolute bottom-1/4 right-0 w-28 h-px bg-gradient-to-l from-transparent via-muted-foreground/20 dark:via-portfolio-accent/20 to-transparent"></div>
+    
+    <!-- Project text elements -->
+    <div class="absolute top-1/2 left-6 text-muted-foreground/15 dark:text-portfolio-accent/8 text-xs font-mono animate-pulse delay-300">build</div>
+    <div class="absolute bottom-1/3 right-6 text-muted-foreground/15 dark:text-portfolio-accent/8 text-xs font-mono animate-pulse delay-600">create</div>
+    
+    <!-- Floating creative shapes -->
+    <div class="absolute top-1/4 right-1/3 w-6 h-6 border border-muted-foreground/10 dark:border-portfolio-accent/10 rounded-lg rotate-45 animate-pulse delay-200"></div>
+    <div class="absolute bottom-1/3 left-1/3 w-4 h-4 bg-muted-foreground/8 dark:bg-portfolio-accent/8 rounded-full animate-bounce delay-400"></div>
+    
+    <!-- Code brackets -->
+    <div class="absolute top-1/3 right-1/5 w-3 h-3 text-muted-foreground/20 dark:text-portfolio-accent/10 animate-pulse delay-500">{{ '{' }}</div>
+    <div class="absolute bottom-1/4 left-1/5 w-3 h-3 text-muted-foreground/20 dark:text-portfolio-accent/10 animate-pulse delay-700">{{ '}' }}</div>
+    
+    <!-- Additional tech symbols -->
+    <div class="absolute top-1/2 right-1/6 w-2 h-2 text-muted-foreground/20 dark:text-portfolio-accent/10 animate-pulse delay-300">&lt;/&gt;</div>
+    <div class="absolute bottom-1/3 left-1/6 w-2 h-2 text-muted-foreground/20 dark:text-portfolio-accent/10 animate-pulse delay-600">[ ]</div>
+  </div>
+  
+  <div class="relative z-10 w-full px-4 md:px-8 lg:px-12 xl:px-20">
+    <div class="max-w-7xl mx-auto">
+    
+    <!-- No filter buttons here anymore - moved to the parent component -->
+
+    <!-- Projects grid -->
+    <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <article
+        *ngFor="let project of filteredProjects; let i = index"
+                          class="group bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-portfolio-accent/40 overflow-hidden relative"
+      >
+        <!-- Featured badge -->
+        <div *ngIf="project.featured" class="absolute top-3 left-3 z-20 bg-portfolio-accent text-white px-2 py-1 rounded-full text-xs font-semibold">
+          ⭐ Featured
+        </div>
+
+        <!-- Project image -->
+        <div class="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-muted to-muted/50">
+          <div class="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <img
+            [src]="project.image || 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80'"
+            [alt]="project.title"
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+          
+          <!-- Hover overlay with action buttons -->
+          <div class="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500">
+            <div class="flex space-x-3">
+              <a
+                *ngIf="project.github"
+                [href]="project.github"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bg-background/90 backdrop-blur-sm text-foreground p-3 rounded-full hover:bg-portfolio-accent hover:text-white transition-all duration-300 hover:scale-110 shadow-lg"
+                title="View Source Code"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project content -->
+        <div class="p-5">
+          <div class="space-y-3">
+            <h3 class="text-xl font-bold text-foreground group-hover:text-portfolio-accent transition-colors duration-300">
+              {{ project.title }}
+            </h3>
+            <p class="text-sm text-muted-foreground leading-relaxed">
+              {{ project.description }}
+            </p>
+            
+            <!-- Technologies used -->
+            <div class="flex flex-wrap gap-2 pt-2">
+              <span
+                *ngFor="let tech of project.technologies"
+                class="px-2 py-1 bg-muted/30 text-xs font-mono text-muted-foreground rounded-md border border-border/50"
+              >
+                {{ tech }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+             </div>
+   </div>
+</section>

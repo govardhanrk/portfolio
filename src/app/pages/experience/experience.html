@@ -1,0 +1,50 @@
+<div class="experience-page">
+  <!-- Tab Navigation -->
+  <div class="tab-navigation" data-aos="fade-up" data-aos-duration="600">
+    <button 
+      class="tab-button active" 
+      (click)="activeTab = 'experience'"
+      [class.active]="activeTab === 'experience'">
+      <div class="button-content">
+        <i class="fas fa-briefcase"></i>
+        <span class="button-text">Professional Journey</span>
+      </div>
+    </button>
+    <button 
+      class="tab-button" 
+      (click)="activeTab = 'education'"
+      [class.active]="activeTab === 'education'">
+      <div class="button-content">
+        <i class="fas fa-graduation-cap"></i>
+        <span class="button-text">Academic Background</span>
+      </div>
+    </button>
+    <button 
+      class="tab-button" 
+      (click)="activeTab = 'certifications'"
+      [class.active]="activeTab === 'certifications'">
+      <div class="button-content">
+        <i class="fas fa-certificate"></i>
+        <span class="button-text">Certifications</span>
+      </div>
+    </button>
+  </div>
+  
+  <div class="content-container">
+    <div class="tab-content" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+      <div class="tab-pane" [class.active]="activeTab === 'experience'">
+        <app-experience-section></app-experience-section>
+      </div>
+      
+      <div class="tab-pane" [class.active]="activeTab === 'education'">
+        <app-education-section></app-education-section>
+      </div>
+      
+      <div class="tab-pane" [class.active]="activeTab === 'certifications'">
+        <app-certifications-section></app-certifications-section>
+      </div>
+    </div>
+  </div>
+  
+  <app-back-to-home></app-back-to-home>
+</div>

@@ -1,0 +1,202 @@
+/* Light Mode Specific Fixes */
+
+// Better background for light mode
+:root:not(.dark) {
+  // Update border color to be more visible in light mode
+  --border: 214.3 31.8% 80%; // Darker border
+  
+  // Reduce brightness of light mode background
+  body {
+    background-color: #f8f9fb;
+  }
+  
+  // Adjust card and background contrasts
+  section.bg-muted\/20 {
+    background-color: #f0f3f8;
+  }
+  
+  // Light mode section specific adjustments
+  .light-mode-section {
+    background: linear-gradient(135deg, #f5f8fc 0%, #edf1f7 100%);
+  }
+  
+  // Better card visibility
+  .from-card\/90 {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  // Make borders more visible
+  .border-border\/50 {
+    border-color: rgba(160, 175, 190, 0.7);
+  }
+  
+  // Enhance light mode cards
+  .light-mode-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f5f7fa 100%);
+    border: 1px solid rgba(160, 175, 190, 0.7);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  }
+  
+  // Improve text contrast
+  .text-muted-foreground {
+    color: #4a5568;
+  }
+  
+  // Improve section headings
+  h2, h3 {
+    color: #2d3748;
+  }
+  
+  // Tag styling improvements for light mode
+  .light-mode-tag {
+    background-color: #edf2f7;
+    border-color: #cbd5e0;
+    color: #4a5568;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    
+    &:hover {
+      border-color: #54D1BD;
+      color: #2d3748;
+    }
+  }
+  
+  // Accent tag styling
+  .light-mode-accent-tag {
+    background-color: rgba(84, 209, 189, 0.15);
+    border-color: rgba(84, 209, 189, 0.4);
+    box-shadow: 0 1px 3px rgba(84, 209, 189, 0.1);
+    
+    &:hover {
+      background-color: rgba(84, 209, 189, 0.25);
+    }
+  }
+  
+  // Add subtle box shadows to cards for depth
+  .bg-gradient-to-br.border {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  }
+  
+  // Bottom section styling
+  .bg-gradient-to-r.from-portfolio-accent\/10 {
+    background-color: #f0fbfa;
+    border-color: rgba(84, 209, 189, 0.3);
+  }
+  
+  // Floating design improvements for light mode
+  .bg-gradient-to-br.from-card\/40 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(245, 247, 250, 0.3) 50%, rgba(255, 255, 255, 0.2) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(160, 175, 190, 0.5);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(160, 175, 190, 0.2);
+  }
+  
+  .bg-gradient-to-br.from-white\/10 {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(160, 175, 190, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+  
+  // Light mode border fixes for better visibility
+  .border-white\/10 { 
+    border-color: rgba(160, 175, 190, 0.4); 
+  }
+  
+  .border-white\/20 { 
+    border-color: rgba(160, 175, 190, 0.6); 
+  }
+  
+  // Section borders in light mode
+  .bg-gradient-to-br.from-card\/40 {
+    border-color: rgba(160, 175, 190, 0.5);
+  }
+  
+  // Card borders in light mode
+  .bg-gradient-to-br.from-white\/10 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Divider borders in light mode
+  .border-t.border-white\/20 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Header section borders in light mode
+  .bg-gradient-to-r.from-portfolio-accent\/10 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Logo container borders in light mode
+  .bg-gradient-to-br.from-white\/10.to-white\/5 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Skill tag borders in light mode
+  .bg-white\/10.border-white\/20 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Credential ID borders in light mode
+  .bg-white\/5.border-white\/20 {
+    border-color: rgba(160, 175, 190, 0.3);
+  }
+  
+  // Experience section specific border fixes
+  .bg-gradient-to-r.from-portfolio-accent\/10.to-transparent {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Job entry card borders in light mode
+  .group.bg-gradient-to-br.from-white\/10 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Education card borders in light mode
+  .group.bg-gradient-to-br.from-white\/10.via-white\/5 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Certification card borders in light mode
+  .group.relative.bg-gradient-to-br.from-white\/10 {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // About section card borders in light mode
+  .group.relative.bg-gradient-to-br.from-white\/10.via-white\/5.to-transparent {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  // Skills section card borders in light mode
+  .group.relative.bg-gradient-to-br.from-white\/10.via-white\/5.to-transparent.backdrop-blur-sm {
+    border-color: rgba(160, 175, 190, 0.4);
+  }
+  
+  .shadow-2xl.shadow-black\/20 {
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.15),
+      0 0 0 1px rgba(160, 175, 190, 0.2);
+  }
+  
+  .shadow-lg { 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+  }
+  
+  .shadow-xl { 
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); 
+  }
+  
+  // Logo styling for light mode
+              .logo-container {
+              .logo-letter {
+                filter: drop-shadow(0 1px 3px rgba(84, 209, 189, 0.25)) !important;
+              }
+              
+              &:hover {
+                .logo-letter {
+                  filter: drop-shadow(0 0 10px rgba(84, 209, 189, 0.7)) !important;
+                }
+              }
+            }
+}

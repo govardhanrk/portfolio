@@ -1,0 +1,22 @@
+<div class="projects-page">
+  <!-- Filter Navigation -->
+  <div class="filter-navigation" data-aos="fade-up" data-aos-duration="600">
+    <button 
+      *ngFor="let category of projectCategories"
+      class="filter-button" 
+      (click)="selectFilter(category)"
+      [class.active]="currentFilter === category">
+      <div class="button-content">
+        <i [class]="getCategoryIcon(category)"></i>
+        <span class="button-text">{{ formatCategoryName(category) }}</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Project Content -->
+  <div class="content-container" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+    <app-projects-section [selectedFilter]="currentFilter"></app-projects-section>
+  </div>
+  
+  <app-back-to-home></app-back-to-home>
+</div>

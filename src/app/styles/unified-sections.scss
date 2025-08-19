@@ -1,0 +1,39 @@
+// Unified Section Styling
+// This file contains shared styling for all major sections of the portfolio
+
+// Unified section background
+.unified-background {
+  position: relative;
+  overflow: hidden;
+  padding: 3rem 0;
+  background-image: linear-gradient(to bottom right, var(--bg-primary), var(--bg-secondary));
+}
+
+// Section separator
+.section-separator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, transparent, var(--border-color), transparent);
+}
+
+// Section content container
+.section-content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .unified-background {
+    padding: 2rem 0;
+  }
+  
+  .section-content {
+    padding: 0 1rem;
+  }
+}

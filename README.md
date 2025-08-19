@@ -1,43 +1,103 @@
-# Software Engineer Portfolio
+# PortfolioAngular
 
-A modern, responsive portfolio website for software engineers built with React, Vite, and Tailwind CSS.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.1.
 
-## Project info
+## 🚀 Quick Start
 
-A showcase of modern web development capabilities using React and related technologies.
+### Development server
 
-## Features
+To start a local development server, run:
 
-- Responsive design for all devices
-- Clean, modern UI with smooth animations
-- Organized sections for portfolio content
-- Interactive project filters
-- Contact form
-- Downloadable resume
-- Social media integration
+```bash
+ng serve
+```
 
-## Customization
+Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-To customize this portfolio:
+### Environment Setup
 
-1. Update personal information in each section component
-2. Replace project details in the ProjectsSection component
-3. Update work experience in the ExperienceSection component
-4. Replace education details in the EducationSection component
-5. Update the resume file with your own
-6. Change colors in the tailwind.config.js file
-7. Replace placeholder images with your own
+1. Copy the environment template:
+```bash
+cp env.example .env
+```
 
-## Development
+2. Update `.env` with your actual Formspree form ID:
+```
+FORMSPREE_FORM_ID=your_actual_form_id_here
+```
 
-To run this project locally:
+## 🛠️ Development
 
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Build for production: `npm run build`
+### Code scaffolding
 
-## Contact
+Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
 
-For questions or assistance, contact:
-youremail@example.com
+```bash
+ng generate component component-name
+```
+
+For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+
+```bash
+ng generate --help
+```
+
+### Building
+
+To build the project run:
+
+```bash
+ng build
+```
+
+This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+
+### Running unit tests
+
+To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+
+```bash
+ng test
+```
+
+### Running end-to-end tests
+
+For end-to-end (e2e) testing, run:
+
+```bash
+ng e2e
+```
+
+Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+
+## 🚀 Deployment
+
+### Vercel Deployment
+
+This project is configured for deployment on Vercel with secure environment variable handling.
+
+1. **Connect to Vercel**: Link your GitHub repository to Vercel
+2. **Set Environment Variables**: Add `FORMSPREE_FORM_ID` in Vercel dashboard
+3. **Deploy**: Vercel will automatically build and deploy your application
+
+For detailed deployment instructions, see [VERCEL_DEPLOYMENT.md](./VERCEL_DEPLOYMENT.md)
+
+### Environment Variables
+
+- `FORMSPREE_FORM_ID`: Your Formspree form ID for contact form functionality
+
+## 📚 Documentation
+
+- [Email Setup Guide](./EMAIL_SETUP.md) - Configure contact form with Formspree
+- [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md) - Complete deployment instructions
+- [Environment Configuration](./src/environments/) - Environment setup details
+
+## 🔒 Security
+
+✅ **Environment Variables**: All sensitive data stored as environment variables
+✅ **Git Safe**: Environment files excluded from version control
+✅ **Production Ready**: Configured for secure deployment
+
+## Additional Resources
+
+For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

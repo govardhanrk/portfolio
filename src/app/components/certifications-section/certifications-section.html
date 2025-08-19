@@ -1,0 +1,105 @@
+<section id="certifications" class="py-20 relative overflow-hidden bg-gradient-to-br from-card/40 via-card/30 to-card/20 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl shadow-black/20 mx-4 md:mx-8 lg:mx-12 xl:mx-20">
+  <!-- Subtle glow effect -->
+  <div class="absolute inset-0 bg-gradient-to-br from-portfolio-accent/5 via-transparent to-portfolio-accent/5 rounded-3xl"></div>
+  
+  <div class="relative z-10 w-full px-4 md:px-8 lg:px-12 xl:px-20">
+
+    <!-- Certifications Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div
+        *ngFor="let cert of certifications; let i = index"
+        class="group relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 overflow-hidden h-full flex flex-col hover:border-portfolio-accent/40"
+      >
+        <!-- Animated background glow -->
+        <div class="absolute inset-0 bg-gradient-to-br from-portfolio-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <!-- Header Section -->
+        <div class="p-6 flex-shrink-0 relative">
+          <div class="flex items-start space-x-5 mb-4">
+            <div class="flex-shrink-0 w-16 h-16 rounded-xl shadow-md border border-white/20 flex items-center justify-center bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm">
+              <img [src]="cert.logo" [alt]="cert.issuer + ' logo'" class="w-10 h-10 object-contain">
+            </div>
+            <div class="flex-1 min-w-0">
+              <h3 class="text-xl font-bold text-foreground leading-tight group-hover:text-portfolio-accent transition-colors duration-300">
+                {{ cert.title }}
+              </h3>
+              <p class="text-base font-medium text-portfolio-accent">
+                {{ cert.issuer }}
+              </p>
+              <p class="text-sm text-muted-foreground mt-1">
+                {{ cert.date }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="px-6 pb-4 flex-grow space-y-5">
+          <!-- Credential ID (if available) -->
+          <div *ngIf="cert.credentialId" class="space-y-2">
+            <h4 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+              Credential ID
+            </h4>
+            <p class="text-sm font-mono text-foreground bg-white/5 px-4 py-3 rounded-lg text-center break-all">
+              {{ cert.credentialId }}
+            </p>
+          </div>
+
+          <!-- Skills - Limited and organized -->
+          <div class="space-y-3">
+            <h4 class="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+              Key Skills
+            </h4>
+            <div class="flex flex-wrap gap-3">
+              <span 
+                *ngFor="let skill of cert.skills.slice(0, 8)" 
+                class="px-4 py-2 bg-white/10 text-foreground text-sm rounded-lg border border-white/20 hover:bg-white/15 transition-colors duration-200"
+              >
+                {{ skill }}
+              </span>
+              <span 
+                *ngIf="cert.skills.length > 8"
+                class="px-4 py-2 bg-white/10 text-muted-foreground text-sm rounded-lg border border-white/20"
+              >
+                +{{ cert.skills.length - 8 }}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="p-6 pt-4 border-t border-white/20 flex-shrink-0">
+          <a 
+            *ngIf="cert.verificationUrl; else noLink"
+            [href]="cert.verificationUrl" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            (click)="onVerificationClick(cert.verificationUrl!, cert.title)"
+            class="inline-flex items-center justify-center w-full text-portfolio-accent hover:bg-portfolio-accent/10 text-sm font-medium py-3 px-4 rounded-lg border border-portfolio-accent/20 hover:border-portfolio-accent transition-all duration-300"
+          >
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Verify Credential
+          </a>
+          <ng-template #noLink>
+            <div class="text-center text-xs text-muted-foreground py-3 border border-white/20 rounded-lg">
+              Certificate by {{ cert.issuer }}
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- View More CTA -->
+    <div class="text-center mt-12">
+      <p class="text-sm text-muted-foreground mb-4">
+        Continuously expanding my knowledge through industry-recognized certifications
+      </p>
+      <div class="flex justify-center space-x-3">
+        <div class="w-1.5 h-1.5 bg-portfolio-accent rounded-full animate-pulse"></div>
+        <div class="w-1.5 h-1.5 bg-portfolio-accent/60 rounded-full animate-pulse delay-150"></div>
+        <div class="w-1.5 h-1.5 bg-portfolio-accent/40 rounded-full animate-pulse delay-300"></div>
+      </div>
+    </div>
+  </div>
+</section>

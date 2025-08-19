@@ -1,0 +1,173 @@
+<section id="beyond-tech" class="py-20 relative overflow-hidden light-mode-section bg-gradient-to-br from-card/40 via-card/30 to-card/20 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl shadow-black/20 mx-4 md:mx-6 lg:mx-8 xl:mx-12">
+  <!-- Subtle glow effect -->
+  <div class="absolute inset-0 bg-gradient-to-br from-portfolio-accent/5 via-transparent to-portfolio-accent/5 rounded-3xl"></div>
+  
+  <!-- Background decorative elements -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <!-- Personal interest symbols -->
+    <div class="absolute top-16 left-1/4 text-muted-foreground/20 dark:text-portfolio-accent/10 text-2xl font-mono animate-pulse">
+      <img src="/images/icons/fight.png" alt="Gaming" class="w-8 h-8 opacity-20">
+    </div>
+    <div class="absolute top-32 right-1/4 text-muted-foreground/20 dark:text-portfolio-accent/10 text-xl font-mono animate-pulse delay-1000">
+      <img src="/images/icons/Training.png" alt="Swimming" class="w-6 h-6 opacity-20">
+    </div>
+    <div class="absolute bottom-32 left-1/3 text-muted-foreground/20 dark:text-portfolio-accent/10 text-3xl font-mono animate-pulse delay-500">
+      <img src="/images/icons/brain_idea.png" alt="Balance" class="w-12 h-12 opacity-20">
+    </div>
+    <div class="absolute top-48 right-1/3 text-muted-foreground/20 dark:text-portfolio-accent/10 text-2xl font-mono animate-pulse delay-700">
+      <img src="/images/icons/Developer.png" alt="Developer" class="w-8 h-8 opacity-20">
+    </div>
+  </div>
+
+  <div class="relative z-10 container-fluid mx-auto px-4 md:px-6 lg:px-8 xl:px-12 max-w-7xl">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold text-foreground mb-4">
+        Beyond <span class="text-portfolio-accent">Tech</span>
+      </h2>
+      <p class="text-lg text-muted-foreground max-w-3xl mx-auto">
+        While I'm passionate about technology, I enjoy a balanced life with diverse interests.
+        Here's what keeps me energized outside the world of coding.
+      </p>
+    </div>
+
+    <!-- Main Content - New Layout -->
+    <div class="mb-10">
+      <!-- Two-column layout for wider screens -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Left Column: Gaming -->
+        <div class="group relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-2xl hover:border-portfolio-accent/40 hover:bg-white/15 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-xl overflow-hidden">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-5 mb-6">
+              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-purple-500/20 to-purple-600/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <img src="/images/icons/fight.png" alt="Gaming" class="w-8 h-8">
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-foreground mb-2 group-hover:text-portfolio-accent transition-colors duration-300">
+                  Strategic Gaming
+                </h3>
+                <p class="text-muted-foreground text-base leading-relaxed">
+                  I love immersing myself in competitive team-based games during my downtime. The thrill of coordination, 
+                  strategy, and those last-minute victories keeps me coming back for more.
+                </p>
+              </div>
+            </div>
+
+            <div class="md:flex md:gap-8 md:items-start">
+              <!-- Games List -->
+              <div class="mb-6 md:mb-0 md:flex-1">
+                <h4 class="text-base font-semibold text-foreground mb-3">Current Favorites:</h4>
+                <div class="flex flex-wrap gap-2">
+                  <span *ngFor="let game of gamingDetails.games" class="px-4 py-2 bg-portfolio-accent/10 border border-portfolio-accent/30 rounded-lg text-portfolio-accent text-sm font-medium hover:bg-portfolio-accent/20 transition-all duration-300 light-mode-accent-tag">
+                    {{ game }}
+                  </span>
+                </div>
+              </div>
+
+              <!-- What I Enjoy -->
+              <div class="md:flex-1">
+                <h4 class="text-base font-semibold text-foreground mb-3">What I Enjoy:</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <span *ngFor="let skill of gamingDetails.highlights" class="px-4 py-2 bg-muted/20 border border-border/50 rounded-lg text-sm text-muted-foreground hover:bg-portfolio-accent/10 hover:border-portfolio-accent/30 hover:text-portfolio-accent transition-all duration-300 light-mode-tag">
+                    {{ skill }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Swimming -->
+        <div class="group relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-2xl hover:border-portfolio-accent/40 hover:bg-white/15 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-xl overflow-hidden">
+          <div class="p-6 md:p-8">
+            <div class="flex items-start gap-5 mb-6">
+              <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <img src="/images/icons/Training.png" alt="Swimming" class="w-8 h-8">
+              </div>
+              <div class="flex-1">
+                <h3 class="text-2xl font-bold text-foreground mb-2 group-hover:text-portfolio-accent transition-colors duration-300">
+                  Swimming
+                </h3>
+                <p class="text-muted-foreground text-base leading-relaxed">
+                  There's something meditative about gliding through water that I find deeply refreshing. 
+                  Swimming has been my go-to activity for both relaxation and exercise for many years.
+                </p>
+              </div>
+            </div>
+
+            <!-- What I Enjoy -->
+            <div>
+              <h4 class="text-base font-semibold text-foreground mb-3">What I Love About It:</h4>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                <span *ngFor="let skill of interests[1].skills" class="px-4 py-2 bg-muted/20 border border-border/50 rounded-lg text-sm text-muted-foreground hover:bg-portfolio-accent/10 hover:border-portfolio-accent/30 hover:text-portfolio-accent transition-all duration-300 light-mode-tag">
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pickleball - Full Width -->
+      <div class="mt-8 group relative bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm border border-white/20 rounded-2xl hover:border-portfolio-accent/40 hover:bg-white/15 transition-all duration-300 hover:-translate-y-2 shadow-lg hover:shadow-xl overflow-hidden">
+        <div class="p-6 md:p-8">
+          <div class="flex flex-col md:flex-row md:items-start gap-6">
+            <!-- Left side with heading and description -->
+            <div class="md:flex-1">
+              <div class="flex items-start gap-5 mb-6">
+                <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-green-500/20 to-green-600/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span class="text-2xl">🏓</span>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-foreground mb-3 group-hover:text-portfolio-accent transition-colors duration-300">
+                    Pickleball Enthusiast
+                  </h3>
+                  <p class="text-muted-foreground text-base leading-relaxed">
+                    My newest obsession! A perfect blend of tennis, badminton, and ping-pong that's surprisingly addictive. 
+                    There's nothing like the distinctive "pop" sound of a good rally on the court.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Fun Facts -->
+              <div>
+                <h4 class="text-base font-semibold text-foreground mb-3">Fun Fact:</h4>
+                <p class="text-muted-foreground italic bg-muted/10 p-4 rounded-lg border border-border/30">
+                  Despite the name, no pickles are harmed during gameplay! Though the "kitchen" zone is just as important as in any culinary adventure.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right side with why I'm hooked -->
+            <div class="md:w-1/3 md:border-l md:border-border/30 md:pl-8">
+              <h4 class="text-base font-semibold text-foreground mb-3">Why I'm Hooked:</h4>
+              <div class="grid grid-cols-1 gap-3">
+                <div class="px-4 py-3 bg-portfolio-accent/10 border border-portfolio-accent/30 rounded-lg hover:bg-portfolio-accent/20 transition-all duration-300 light-mode-accent-tag">
+                  <span class="text-portfolio-accent font-medium">Fast-paced</span>
+                  <p class="text-xs text-muted-foreground mt-1">Quick reflexes and on-the-spot decisions make every match exciting</p>
+                </div>
+                <div class="px-4 py-3 bg-portfolio-accent/10 border border-portfolio-accent/30 rounded-lg hover:bg-portfolio-accent/20 transition-all duration-300 light-mode-accent-tag">
+                  <span class="text-portfolio-accent font-medium">Easy to learn</span>
+                  <p class="text-xs text-muted-foreground mt-1">Simple rules that anyone can pick up in a single session</p>
+                </div>
+                <div class="px-4 py-3 bg-portfolio-accent/10 border border-portfolio-accent/30 rounded-lg hover:bg-portfolio-accent/20 transition-all duration-300 light-mode-accent-tag">
+                  <span class="text-portfolio-accent font-medium">Social</span>
+                  <p class="text-xs text-muted-foreground mt-1">A great way to meet new people and build community</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Personal Note -->
+    <div class="text-center">
+      <div class="bg-gradient-to-r from-portfolio-accent/10 to-transparent rounded-xl p-6 border border-portfolio-accent/20">
+        <p class="text-muted-foreground max-w-3xl mx-auto">
+          Continuously learning and adapting to new technologies to deliver cutting-edge solutions
+        </p>
+      </div>
+    </div>
+           </div>
+</section>
