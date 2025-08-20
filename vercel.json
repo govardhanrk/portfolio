@@ -12,6 +12,53 @@
   ],
   "routes": [
     {
+      "src": "/main-([a-zA-Z0-9]+)\\.js",
+      "dest": "/main-$1.js",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/polyfills-([a-zA-Z0-9]+)\\.js",
+      "dest": "/polyfills-$1.js",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/styles-([a-zA-Z0-9]+)\\.css",
+      "dest": "/styles-$1.css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "src": "/main-([a-zA-Z0-9]+)\\.css",
+      "dest": "/main-$1.css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "src": "/favicon\\.ico",
+      "dest": "/favicon.ico",
+      "headers": {
+        "Content-Type": "image/x-icon"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/files/(.*)",
+      "dest": "/files/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

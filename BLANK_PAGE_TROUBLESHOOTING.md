@@ -4,7 +4,88 @@
 
 Your Angular application builds successfully but shows a blank page when deployed to Vercel.
 
-## 🔍 Common Causes and Solutions
+## ✅ **SOLUTION FOUND: MIME Type Issue**
+
+### **Root Cause**
+Vercel was serving JavaScript files with incorrect MIME type (`text/html` instead of `application/javascript`), preventing Angular from bootstrapping.
+
+### **Error Messages**
+- `Failed to load module script: Expected a JavaScript-or-Wasm module script but the server responded with a MIME type of "text/html"`
+- `Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')`
+
+### **Fix Applied**
+Updated `vercel.json` with proper routes for static assets:
+
+```json
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/portfolio-angular/browser",
+        "buildCommand": "npm run build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/main-([a-zA-Z0-9]+)\\.js",
+      "dest": "/main-$1.js",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/polyfills-([a-zA-Z0-9]+)\\.js",
+      "dest": "/polyfills-$1.js",
+      "headers": {
+        "Content-Type": "application/javascript"
+      }
+    },
+    {
+      "src": "/styles-([a-zA-Z0-9]+)\\.css",
+      "dest": "/styles-$1.css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "src": "/main-([a-zA-Z0-9]+)\\.css",
+      "dest": "/main-$1.css",
+      "headers": {
+        "Content-Type": "text/css"
+      }
+    },
+    {
+      "src": "/favicon\\.ico",
+      "dest": "/favicon.ico",
+      "headers": {
+        "Content-Type": "image/x-icon"
+      }
+    },
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/images/(.*)",
+      "dest": "/images/$1"
+    },
+    {
+      "src": "/files/(.*)",
+      "dest": "/files/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
+```
+
+## 🔍 Other Common Causes and Solutions
 
 ### 1. **JavaScript Errors Preventing Bootstrap**
 
@@ -135,6 +216,7 @@ console.log('🔧 Email config loaded:', EMAIL_CONFIG);
 - [ ] No network errors in developer tools
 - [ ] App component initializes without errors
 - [ ] All dependencies are properly imported
+- [ ] Static assets served with correct MIME types
 
 ## 🚀 Quick Test Commands
 
@@ -167,10 +249,11 @@ If the issue persists:
 
 ## 🎯 Most Likely Solutions
 
-1. **Environment Variables**: Set `FORMSPREE_FORM_ID` in Vercel dashboard
-2. **JavaScript Errors**: Check browser console for errors
-3. **Component Issues**: Simplify app to isolate problematic components
-4. **Build Configuration**: Verify Vercel configuration is correct
+1. **MIME Type Issues**: Ensure static assets are served with correct Content-Type headers
+2. **Environment Variables**: Set `FORMSPREE_FORM_ID` in Vercel dashboard
+3. **JavaScript Errors**: Check browser console for errors
+4. **Component Issues**: Simplify app to isolate problematic components
+5. **Build Configuration**: Verify Vercel configuration is correct
 
 ## 📝 Debug Output
 
