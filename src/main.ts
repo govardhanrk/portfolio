@@ -5,9 +5,13 @@ import { AppComponent } from './app/app';
 // Ensure zone.js is loaded
 import 'zone.js';
 
+console.log('🚀 Starting Angular application...');
+
 // Import AOS
 import * as AOS from 'aos';
 import 'aos/dist/aos.css';
+
+console.log('📚 AOS imported successfully');
 
 // Initialize AOS
 AOS.init({
@@ -17,5 +21,14 @@ AOS.init({
   offset: 100
 });
 
+console.log('✨ AOS initialized');
+
+console.log('🔧 Bootstrapping Angular application...');
+
 bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+  .then(() => {
+    console.log('✅ Angular application bootstrapped successfully');
+  })
+  .catch((err) => {
+    console.error('❌ Error bootstrapping Angular application:', err);
+  });

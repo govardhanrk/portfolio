@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Build Output</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #f0f0f0; 
+        }
+        .test-container { 
+            background: white; 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+        }
+        .status { 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 4px; 
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        .info { background-color: #d1ecf1; color: #0c5460; }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Build Output Test</h1>
+        <div id="status"></div>
+        <div id="console-output"></div>
+    </div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const consoleDiv = document.getElementById('console-output');
+        
+        function log(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.textContent = message;
+            consoleDiv.appendChild(div);
+            console.log(message);
+        }
+
+        // Test if we can load the build files
+        log('🔍 Testing build output...', 'info');
+        
+        // Test loading polyfills
+        const polyfillScript = document.createElement('script');
+        polyfillScript.src = './dist/portfolio-angular/browser/polyfills-BUUDEW7V.js';
+        polyfillScript.type = 'module';
+        polyfillScript.onload = () => log('✅ Polyfills loaded successfully', 'success');
+        polyfillScript.onerror = () => log('❌ Failed to load polyfills', 'error');
+        document.head.appendChild(polyfillScript);
+
+        // Test loading main script
+        const mainScript = document.createElement('script');
+        mainScript.src = './dist/portfolio-angular/browser/main-RDRS64YH.js';
+        mainScript.type = 'module';
+        mainScript.onload = () => log('✅ Main script loaded successfully', 'success');
+        mainScript.onerror = () => log('❌ Failed to load main script', 'error');
+        document.head.appendChild(mainScript);
+
+        // Override console.log to capture output
+        const originalLog = console.log;
+        const originalError = console.error;
+        
+        console.log = function(...args) {
+            log('📝 ' + args.join(' '), 'info');
+            originalLog.apply(console, args);
+        };
+        
+        console.error = function(...args) {
+            log('❌ ' + args.join(' '), 'error');
+            originalError.apply(console, args);
+        };
+
+        // Test after a delay
+        setTimeout(() => {
+            log('⏰ Testing Angular app initialization...', 'info');
+            
+            // Check if app-root exists
+            const appRoot = document.querySelector('app-root');
+            if (appRoot) {
+                log('✅ app-root element found', 'success');
+            } else {
+                log('❌ app-root element not found', 'error');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
