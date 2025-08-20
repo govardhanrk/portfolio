@@ -40,10 +40,19 @@
       }
     },
     {
+      "src": "/favicon\\.svg",
+      "dest": "/favicon.svg",
+      "headers": {
+        "Content-Type": "image/svg+xml",
+        "Cache-Control": "public, max-age=0, must-revalidate"
+      }
+    },
+    {
       "src": "/favicon\\.ico",
       "dest": "/favicon.ico",
       "headers": {
-        "Content-Type": "image/x-icon"
+        "Content-Type": "image/x-icon",
+        "Cache-Control": "public, max-age=0, must-revalidate"
       }
     },
     {
