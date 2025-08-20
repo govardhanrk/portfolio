@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy, HostListener, PLATFORM_ID, Inject, ChangeDetectorRef } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-hero-section',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './hero-section.html',
   styleUrl: './hero-section.scss'
 })
