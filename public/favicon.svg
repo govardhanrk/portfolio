@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+  
+  <!-- Flask/Beaker -->
+  <path d="M8 8h6l2-4h4l2 4h6v16c0 1.1-.9 2-2 2H10c-1.1 0-2-.9-2-2V8z" fill="#3b82f6" opacity="0.8"/>
+  
+  <!-- Flask neck -->
+  <rect x="14" y="4" width="4" height="4" fill="#3b82f6" opacity="0.8"/>
+  
+  <!-- Liquid in flask -->
+  <path d="M10 10h12v12c0 .6-.4 1-1 1H11c-.6 0-1-.4-1-1V10z" fill="#06b6d4" opacity="0.7"/>
+  
+  <!-- Bubbles in liquid -->
+  <circle cx="12" cy="16" r="1" fill="#ffffff" opacity="0.8"/>
+  <circle cx="18" cy="14" r="0.8" fill="#ffffff" opacity="0.6"/>
+  <circle cx="15" cy="18" r="0.6" fill="#ffffff" opacity="0.7"/>
+  
+  <!-- Circuit lines -->
+  <path d="M6 6l4 4" stroke="#10b981" stroke-width="1" opacity="0.8"/>
+  <path d="M26 6l-4 4" stroke="#10b981" stroke-width="1" opacity="0.8"/>
+  <path d="M6 26l4-4" stroke="#10b981" stroke-width="1" opacity="0.8"/>
+  <path d="M26 26l-4-4" stroke="#10b981" stroke-width="1" opacity="0.8"/>
+  
+  <!-- Sparkle effect -->
+  <path d="M20 8l1-1 1 1-1 1z" fill="#fbbf24"/>
+  <path d="M12 24l1-1 1 1-1 1z" fill="#fbbf24"/>
+  <path d="M24 20l1-1 1 1-1 1z" fill="#fbbf24"/>
+  
+  <!-- Code symbols -->
+  <text x="8" y="28" font-family="monospace" font-size="6" fill="#ffffff" opacity="0.6">{</text>
+  <text x="24" y="28" font-family="monospace" font-size="6" fill="#ffffff" opacity="0.6">}</text>
+</svg>
