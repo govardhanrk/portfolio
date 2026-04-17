@@ -23,7 +23,7 @@ export class ExperienceSectionComponent {
   experiences: Experience[] = [
     {
       company: "Brillio",
-      logo: "/images/company-logos/brillio.png",
+      logo: "/images/company-logos/Brillio_Logo.svg",
       title: "Senior Software Engineer",
       date: "March 2026 - Present",
       responsibilities: [
