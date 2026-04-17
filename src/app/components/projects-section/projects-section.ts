@@ -21,8 +21,26 @@ interface Project {
 export class ProjectsSectionComponent implements OnChanges {
   @Input() selectedFilter: string = "all";
   filter = "all";
-  
+
   projects: Project[] = [
+    {
+      title: "FatPlants RAG Chatbot",
+      description:
+        "Built a retrieval-augmented-generation (RAG) chatbot for the FatPlants research platform at the University of Missouri. Combines a Flask-based citation retrieval API with a conversational agent to surface relevant scientific literature on plant lipid metabolism, enabling researchers to query and cite source papers in natural language.",
+      technologies: ["Python", "Flask", "RAG", "LLMs", "NLP", "Information Retrieval"],
+      github: "https://github.com/govardhanrk/fatplants_chatbot",
+      category: "backend",
+      featured: true,
+    },
+    {
+      title: "qBraid Chat - VS Code Extension",
+      description:
+        "Developed a Visual Studio Code extension that integrates qBraid's AI models and quantum computing services directly into the IDE. Supports real-time streaming chat responses, quantum device availability queries, job status checks, and multi-model selection for interacting with quantum workloads without leaving the editor.",
+      technologies: ["TypeScript", "Node.js", "VS Code Extension API", "REST APIs", "Quantum Computing"],
+      github: "https://github.com/govardhanrk/qbraid-fullstack-challenge",
+      category: "backend",
+      featured: true,
+    },
     {
       title: "Twitter Engagement Forecasting",
       description:
@@ -83,7 +101,7 @@ export class ProjectsSectionComponent implements OnChanges {
       return this.projects.filter(project => project.category === this.filter);
     }
   }
-  
+
   ngOnChanges(changes: SimpleChanges) {
     if (changes['selectedFilter'] && changes['selectedFilter'].currentValue) {
       this.filter = changes['selectedFilter'].currentValue;
