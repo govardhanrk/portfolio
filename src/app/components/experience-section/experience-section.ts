@@ -22,10 +22,27 @@ interface Experience {
 export class ExperienceSectionComponent {
   experiences: Experience[] = [
     {
+      company: "Brillio",
+      logo: "/images/company-logos/brillio.png",
+      title: "Senior Software Engineer",
+      date: "March 2026 - Present",
+      responsibilities: [
+        "Design and develop scalable enterprise backend services using Java, Spring Boot, and microservices architecture",
+        "Build cloud-native solutions on AWS and Azure with containerization (Docker, Kubernetes) and infrastructure automation",
+        "Integrate Kafka and event-driven patterns to enable resilient, asynchronous inter-service communication",
+        "Implement CI/CD pipelines, observability (Prometheus, Grafana), and automated testing to improve release velocity and system reliability",
+        "Collaborate cross-functionally with product, architecture, and DevOps teams to deliver high-quality solutions for enterprise clients",
+        "Mentor engineers on clean-code practices, code review standards, and performance optimization",
+      ],
+      bgColor: "bg-teal-600",
+      accentColor: "bg-teal-50",
+      textColor: "text-teal-600",
+    },
+    {
       company: "University of Missouri",
       logo: "/images/company-logos/mizzou.png",
       title: "Backend Developer (Research Assistant)",
-      date: "January 2024 - Present",
+      date: "January 2024 - May 2025",
       responsibilities: [
         "Engineered a cloud-based docker containerized web platform for plant‑protein‑phosphorylation analysis",
         "Optimized MySQL and MongoDB through indexing and normalization, improving query performance by 20%",
@@ -72,7 +89,7 @@ export class ExperienceSectionComponent {
     {
       company: "LTIMINDTREE",
       logo: "/images/company-logos/ltimindtree.png",
-      title: "Data Engineer",
+      title: "Software Engineer",
       date: "May 2020 - February 2023",
       responsibilities: [
         "Developed data applications with Java, Apache Spark, Spring Boot, RESTful services, and microservices",
